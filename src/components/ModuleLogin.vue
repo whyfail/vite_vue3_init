@@ -1,0 +1,114 @@
+<template>
+  <div class="LogIn">
+    <div class="LogIn_root">
+      <div class="container">
+        <div class="brand-logo"></div>
+        <div class="inputs">
+          <label>账号</label>
+          <input type="text" placeholder="账号" />
+          <label>密码</label>
+          <input type="password" placeholder="密码" />
+          <label>验证码</label>
+          <input type="text" placeholder="验证码" />
+          <button type="submit">登录</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped lang="less">
+.LogIn {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .LogIn_root {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container {
+      position: relative;
+      width: 350px;
+      border-radius: 20px;
+      padding: 40px;
+      box-sizing: border-box;
+      background: #ecf0f3;
+      box-shadow: 1px 1px 3px #cbced1, -1px -1px 3px white;
+      input {
+        caret-color: red;
+      }
+      .brand-logo {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        margin: auto;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+      }
+
+      .inputs {
+        text-align: left;
+        margin-top: 30px;
+      }
+
+      label,
+      input,
+      button {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+      }
+
+      label {
+        margin-bottom: 4px;
+      }
+
+      label:nth-of-type(2) {
+        margin-top: 12px;
+      }
+
+      input::placeholder {
+        color: gray;
+      }
+
+      input {
+        background: #ecf0f3;
+        padding: 10px;
+        padding-left: 20px;
+        height: 50px;
+        font-size: 14px;
+        border-radius: 50px;
+        box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+      }
+      button {
+        color: gray;
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 50px;
+        background: #ecf0f3;
+        border: 1px solid #e8e8e8;
+        transition: all 0.3s;
+        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+        margin-top: 30px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        border: 1px solid white;
+      }
+
+      button:active {
+        box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+      }
+    }
+  }
+}
+</style>
