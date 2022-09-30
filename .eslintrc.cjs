@@ -41,5 +41,11 @@ module.exports = {
     indent: 'off',
     'no-undef': ['error', { typeof: true }],
     'no-unused-vars': 'error',
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index'],
+      },
+    ],
   },
 };

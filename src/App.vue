@@ -1,7 +1,7 @@
 <script setup>
-import ModuleDemo from './components/ModuleDemo.vue';
+import Index from './components/index.vue';
 </script>
 
 <template>
-  <ModuleDemo />
+  <Index />
 </template>

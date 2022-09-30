@@ -15,6 +15,7 @@
     "lint-staged:js": "eslint --fix --ext .js,.jsx,.ts,.tsx,.vue "
   },
   "dependencies": {
+    "@vueuse/core": "^9.3.0",
     "axios": "^0.27.2",
     "dayjs": "^1.11.5",
     "less": "^4.1.3",

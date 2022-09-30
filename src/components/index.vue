@@ -5,8 +5,8 @@ const user = useUserStore();
 </script>
 
 <template>
-  <div class="LogIn">
-    <div class="LogIn_root">
+  <div class="demo_root">
+    <div class="demo_content">
       <div class="container">
         <div class="brand-logo">{{ user.number }}</div>
         <div class="inputs">
@@ -19,14 +19,14 @@ const user = useUserStore();
 </template>
 
 <style scoped lang="less">
-.LogIn {
+.demo_root {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
-  .LogIn_root {
+  .demo_content {
     width: 100vw;
     height: 100vh;
     display: flex;

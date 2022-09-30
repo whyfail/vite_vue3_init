@@ -72,6 +72,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vue: ['vue'],
+          vueuse: ['@vueuse/core'],
           lodash: ['lodash'],
           moment: ['moment'],
         },
