@@ -11,7 +11,7 @@ npm install
 #### 启动服务
 
 ```
-npm run start
+npm run dev
 ```
 
 #### 项目打包
