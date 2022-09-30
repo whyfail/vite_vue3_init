@@ -1,16 +1,17 @@
+<script setup>
+import { useUserStore } from '../stores/storeOther';
+
+const user = useUserStore();
+</script>
+
 <template>
   <div class="LogIn">
     <div class="LogIn_root">
       <div class="container">
-        <div class="brand-logo"></div>
+        <div class="brand-logo">{{ user.number }}</div>
         <div class="inputs">
-          <label>账号</label>
-          <input type="text" placeholder="账号" />
-          <label>密码</label>
-          <input type="password" placeholder="密码" />
-          <label>验证码</label>
-          <input type="text" placeholder="验证码" />
-          <button type="submit">登录</button>
+          <button @click="user.addNumber">+</button>
+          <button @click="user.subtractNumber">-</button>
         </div>
       </div>
     </div>
@@ -24,6 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
   .LogIn_root {
     width: 100vw;
     height: 100vh;
@@ -42,6 +44,10 @@
         caret-color: red;
       }
       .brand-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
         height: 100px;
         width: 100px;
         display: flex;

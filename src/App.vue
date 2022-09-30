@@ -1,7 +1,7 @@
 <script setup>
-import ModuleLogin from './components/ModuleLogin.vue';
+import ModuleDemo from './components/ModuleDemo.vue';
 </script>
 
 <template>
-  <ModuleLogin />
+  <ModuleDemo />
 </template>
