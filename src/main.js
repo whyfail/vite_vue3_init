@@ -2,6 +2,7 @@ import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 import App from './App.vue';
 import './assets/css/normalize.less';
+import './common/common-set-rem';
 
 const pinia = createPinia();
 
