@@ -1,7 +1,3 @@
-<script setup>
-import Index from './components/index.vue';
-</script>
-
 <template>
-  <Index />
+  <router-view></router-view>
 </template>

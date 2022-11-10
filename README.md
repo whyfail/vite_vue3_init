@@ -74,6 +74,9 @@ git push
 - `package.json` 中 `engines`用来定义`node`版本，可根据自己的需要自行修改
 - `.npmrc` 文件是用来约束 npm 的，`package.json` 中 `engines`只能限制`yarn`，所以需要这个文件配置
 - `vite-plugin-vue-inspector` 用来通过页面快速定位到代码，在`vite.config.js`中进行了配置，在页面中可使用`control + y`可激活，点击页面跳转到 vscode 中代码对用位置
-- `postcss-px-to-viewport` 用来将 css 中的 px 单位转换为 vw，`react-jss`和行内样式无效
+- `postcss-pxtorem` 用来将 css 中的 px 单位转换为 rem，`css in js`和行内样式无效
 - `viteCompression` 用来配置开启 gzip 打包
 - `rollup-plugin-visualizer` 用来打包时展示包大小细节
+- `@vueuse/core` 一个多功能 hook 库，包含了非常多非常好的工具
+- `lodash` 包含了多功能的 js 工具库
+- `vue-router` vue 路由功能库
