@@ -23,6 +23,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "pinia": "^2.0.22",
+    "vite-plugin-no-bug": "^1.0.4",
     "vue": "^3.2.37",
     "vue-router": "^4.1.6"
   },
