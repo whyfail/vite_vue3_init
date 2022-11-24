@@ -21,15 +21,13 @@ const user = useUserStore();
 
 <style scoped lang="less">
 .demo_root {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
   .demo_content {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
