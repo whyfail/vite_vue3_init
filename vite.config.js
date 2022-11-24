@@ -53,7 +53,7 @@ export default defineConfig({
     },
   },
   server: {
-    host: 'localhost',
+    host: true,
     proxy: {
       // 代理
       '/PROXY': {

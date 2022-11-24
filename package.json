@@ -23,7 +23,6 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "pinia": "^2.0.22",
-    "vite-plugin-no-bug": "^1.0.4",
     "vue": "^3.2.37",
     "vue-router": "^4.1.6"
   },
@@ -43,7 +42,8 @@
     "vite-plugin-chunk-split": "^0.4.4",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-progress": "^0.0.4",
-    "vite-plugin-vue-inspector": "^1.1.3"
+    "vite-plugin-vue-inspector": "^1.1.3",
+    "vite-plugin-no-bug": "^1.0.4"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,vue}": "npm run lint-staged:js",
