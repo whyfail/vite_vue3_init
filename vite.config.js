@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 import vue from '@vitejs/plugin-vue';
 import legacy from '@vitejs/plugin-legacy';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -8,6 +9,7 @@ import Inspector from 'vite-plugin-vue-inspector';
 import postCssPxToRem from 'postcss-pxtorem';
 import vitePluginNoBug from 'vite-plugin-no-bug';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
+import ElementPlus from 'unplugin-element-plus/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,10 +18,6 @@ export default defineConfig({
     vue(),
     Inspector({
       toggleComboKey: 'control-y',
-    }),
-    visualizer({
-      open: true, //注意这里要设置为true，否则无效
-      gzipSize: true,
     }),
     viteCompression({
       algorithm: 'gzip',
@@ -31,8 +29,17 @@ export default defineConfig({
     }),
     vitePluginNoBug(),
     chunkSplitPlugin(),
+    ElementPlus({
+      useSource: true,
+    }),
+    visualizer(),
     progress(),
   ],
+  resolve: {
+    alias: {
+      '@': `${path.resolve(__dirname, 'src')}`,
+    },
+  },
   css: {
     postcss: {
       plugins: [
@@ -44,12 +51,8 @@ export default defineConfig({
       ],
     },
     preprocessorOptions: {
-      less: {
-        javascriptEnabled: true,
-        modifyVars: {
-          // 主题修改
-          '@primary-color': '#1d88f6', // 全局主色
-        },
+      scss: {
+        additionalData: `@use "@/assets/css/element-plus.scss" as *;`,
       },
     },
   },
@@ -72,7 +75,6 @@ export default defineConfig({
           vue: ['vue'],
           vueuse: ['@vueuse/core'],
           lodash: ['lodash'],
-          moment: ['moment'],
         },
       },
     },

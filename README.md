@@ -70,6 +70,7 @@ git push
 
 #### 项目功能简介
 
+- `element-plus` element-plus UI 库，修改其主题样式可以在`src/assets/css/element-plus.scss`中进行自定义主题
 - `lint-staged husky`:用于代码提交时进行`eslint prettier`代码校验，校验通过后，才能提交代码
 - `package.json` 中 `engines`用来定义`node`版本，可根据自己的需要自行修改
 - `.npmrc` 文件是用来约束 npm 的，`package.json` 中 `engines`只能限制`yarn`，所以需要这个文件配置

@@ -3,6 +3,9 @@
  * 时间组件
  */
 import { useNow, useDateFormat } from '@vueuse/core';
+import { ElButton } from 'element-plus';
+
+const aaa = null;
 
 const formatted = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
 </script>
@@ -10,11 +13,11 @@ const formatted = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
 <template>
   <div class="root">
     {{ formatted }}&nbsp;&nbsp;&nbsp;
-    <button @click="$router.replace('/')">首页</button>
+    <el-button type="primary" @click="$router.replace('/')">首页</el-button>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .root {
   width: 100%;
   height: 100%;

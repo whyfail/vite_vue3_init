@@ -19,7 +19,7 @@ const user = useUserStore();
   </div>
 </template>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .demo_root {
   width: 100%;
   height: 100%;

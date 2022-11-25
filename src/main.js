@@ -3,8 +3,9 @@ import { createApp } from 'vue';
 import * as VueRouter from 'vue-router';
 import App from './App.vue';
 import { routes } from './common/common-router';
+import 'dayjs/locale/zh-cn';
 import 'animate.css';
-import './assets/css/normalize.less';
+import './assets/css/normalize.scss';
 import './common/common-set-rem';
 
 const app = createApp(App);
