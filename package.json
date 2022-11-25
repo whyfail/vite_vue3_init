@@ -52,5 +52,10 @@
     "**/*.{js,jsx,tsx,ts,less,md,json,vue}": [
       "prettier --write"
     ]
-  }
+  },
+    "husky": {
+      "hooks": {
+        "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS" 
+      }
+    }
 }
