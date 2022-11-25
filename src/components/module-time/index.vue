@@ -5,8 +5,6 @@
 import { useNow, useDateFormat } from '@vueuse/core';
 import { ElButton } from 'element-plus';
 
-const aaa = null;
-
 const formatted = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
 </script>
 
