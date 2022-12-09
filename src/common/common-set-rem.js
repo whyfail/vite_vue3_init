@@ -13,6 +13,10 @@ function setRem() {
     document.querySelector('#app').style.minWidth = '1660px';
     document.querySelector('#app').style.minHeight = '900px';
 
+    let rem = 1660 * basePc; // 以默认比例值乘以当前窗口宽度,得到该宽度下的相应font-size值
+
+    document.documentElement.style.fontSize = rem + 'px';
+
     return;
   }
 
