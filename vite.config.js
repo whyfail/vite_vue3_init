@@ -76,7 +76,7 @@ export default defineConfig({
         manualChunks: {
           vue: ['vue'],
           vueuse: ['@vueuse/core'],
-          lodash: ['lodash'],
+          lodashEs: ['lodash-es'],
         },
       },
     },
