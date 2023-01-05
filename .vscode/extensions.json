@@ -1,3 +1,11 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": [
+    "vue.volar",
+    "dbaeumer.vscode-eslint",
+    "maggie.eslint-rules-zh-plugin",
+    "esbenp.prettier-vscode",
+    "sburg.vscode-javascript-booster",
+    "streetsidesoftware.code-spell-checker",
+    "xabikos.javascriptsnippets"
+  ]
 }
