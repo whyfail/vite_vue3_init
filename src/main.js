@@ -7,6 +7,7 @@ import 'dayjs/locale/zh-cn';
 import 'animate.css';
 import './assets/css/normalize.scss';
 import './common/common-set-rem';
+import { VueQueryPlugin } from '@tanstack/vue-query';
 
 const app = createApp(App);
 
@@ -21,4 +22,5 @@ const router = VueRouter.createRouter({
 
 app.use(pinia);
 app.use(router);
+app.use(VueQueryPlugin);
 app.mount('#app');

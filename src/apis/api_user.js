@@ -17,3 +17,20 @@ export const userLoginApi = async (value) => {
     return;
   }
 };
+
+/**
+ * !测试使用，新建项目后删除掉
+ */
+export const csGetApiKey = '/PROXY/api/api-wenan-anwei/index.php';
+
+export const csGetApi = async (value) => {
+  try {
+    const data = await http.get(csGetApiKey, { params: value });
+
+    return data;
+  } catch (error) {
+    console.error(error);
+
+    return;
+  }
+};

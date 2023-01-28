@@ -64,7 +64,8 @@ export default defineConfig({
     proxy: {
       // 代理
       '/PROXY': {
-        target: 'http://xxxx',
+        // !测试接口，新建项目后删除
+        target: 'https://v.api.aa1.cn',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/PROXY/, ''),
       },
