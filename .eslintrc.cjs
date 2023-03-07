@@ -15,10 +15,20 @@ module.exports = {
   },
   plugins: ['vue'],
   rules: {
+    'vue/component-name-in-template-casing': [
+      'error',
+      'PascalCase',
+      {
+        registeredComponentsOnly: false,
+        ignores: [],
+      },
+    ],
+    'vue/no-unused-components': 'error',
+    'vue/no-undef-components': 'error',
     'no-console': [
       'error',
       {
-        allow: ['warn', 'error', 'info', 'debug'],
+        allow: ['warn', 'error', 'info', 'debug', 'groupCollapsed', 'groupEnd'],
       },
     ],
     'padding-line-between-statements': [

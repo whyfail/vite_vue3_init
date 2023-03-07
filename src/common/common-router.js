@@ -1,7 +1,23 @@
 /**
  * 路由定义
  */
-export const routes = [
-  { path: '/', component: () => import('../components/index.vue') },
-  { path: '/time', component: () => import('../components/module-time/index.vue') },
-];
+
+import { createRouter, createWebHashHistory } from 'vue-router';
+
+const routers = createRouter({
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: () => import('../components/index.vue'),
+    },
+    {
+      path: '/time',
+      name: 'time',
+      component: () => import('../components/module-time/index.vue'),
+    },
+  ],
+});
+
+export default routers;

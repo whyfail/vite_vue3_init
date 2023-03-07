@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import path from 'path';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import legacy from '@vitejs/plugin-legacy';
@@ -11,6 +10,7 @@ import postCssPxToRem from 'postcss-pxtorem';
 import vitePluginNoBug from 'vite-plugin-no-bug';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import ElementPlus from 'unplugin-element-plus/vite';
+import { fileURLToPath, URL } from 'node:url';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -39,7 +39,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': `${path.resolve(__dirname, 'src')}`,
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   css: {
@@ -78,6 +78,7 @@ export default defineConfig({
           vue: ['vue'],
           vueuse: ['@vueuse/core'],
           lodashEs: ['lodash-es'],
+          elementPlus: ['element-plus'],
         },
       },
     },

@@ -41,9 +41,9 @@ const formatted = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
     <br />
     <div>{{ postIsLoading ? '加载中' : postData }}</div>
     <br />
-    <el-button type="warning" @click="csGetApiMutate">post请求</el-button>
+    <ElButton type="warning" @click="csGetApiMutate">post请求</ElButton>
     <br />
-    <el-button type="primary" @click="$router.replace('/')">首页</el-button>
+    <ElButton type="primary" @click="$router.replace('/')">首页</ElButton>
   </div>
 </template>
 
