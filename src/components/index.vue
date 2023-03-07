@@ -1,17 +1,17 @@
 <script setup>
-import { useUserStore } from '../stores/storeOther';
+import useStore from '../stores';
 
-const user = useUserStore();
+const { storeUser } = useStore();
 </script>
 
 <template>
   <div class="demo_root animate__animated animate__bounceInDown">
     <div class="demo_content">
       <div class="container">
-        <div class="brand-logo">{{ user.number }}</div>
+        <div class="brand-logo">{{ storeUser.number }}</div>
         <div class="inputs">
-          <button @click="user.addNumber">+</button>
-          <button @click="user.subtractNumber">-</button>
+          <button @click="storeUser.addNumber">+</button>
+          <button @click="storeUser.subtractNumber">-</button>
           <button @click="$router.replace('/time')">时间路由</button>
         </div>
       </div>

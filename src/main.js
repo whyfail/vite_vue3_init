@@ -11,7 +11,8 @@ import { VueQueryPlugin } from '@tanstack/vue-query';
 
 const app = createApp(App);
 
-// 全局状态
+// 创建全局状态
+// !全局状态日志查看：安装Vue浏览器插件后找到Pinia模块可查看所有状态
 const pinia = createPinia();
 
 // 路由

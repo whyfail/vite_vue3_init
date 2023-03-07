@@ -18,7 +18,7 @@ module.exports = {
     'no-console': [
       'error',
       {
-        allow: ['warn', 'error', 'info'],
+        allow: ['warn', 'error', 'info', 'debug'],
       },
     ],
     'padding-line-between-statements': [
