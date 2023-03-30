@@ -81,3 +81,4 @@ git push
 - `@vueuse/core` 一个多功能 hook 库，包含了非常多非常好的工具
 - `lodash` 包含了多功能的 js 工具库
 - `vue-router` vue 路由功能库
+- `vite-plugin-image-optimizer`: 打包优化图片资源插件
