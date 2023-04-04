@@ -82,3 +82,4 @@ git push
 - `lodash` 包含了多功能的 js 工具库
 - `vue-router` vue 路由功能库
 - `vite-plugin-image-optimizer`: 打包优化图片资源插件
+- `preinstall` 该命令是为了强制包管理器，这里使用的是 npm
