@@ -11,7 +11,6 @@ import vitePluginNoBug from 'vite-plugin-no-bug';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import ElementPlus from 'unplugin-element-plus/vite';
 import { fileURLToPath, URL } from 'node:url';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -35,7 +34,6 @@ export default defineConfig({
     ElementPlus({
       useSource: true,
     }),
-    ViteImageOptimizer(),
     visualizer(),
     progress(),
   ],
