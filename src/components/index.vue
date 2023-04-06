@@ -5,7 +5,7 @@ const { storeUser } = useStore();
 </script>
 
 <template>
-  <div class="demo_root animate__animated animate__bounceInDown">
+  <div class="demo_root">
     <div class="demo_content">
       <div class="container">
         <div class="brand-logo">{{ storeUser.number }}</div>
