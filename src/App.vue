@@ -19,7 +19,7 @@ const onBeforeLeave = () => {
 <template>
   <ElConfigProvider :locale="zhCn">
     <RouterView v-slot="{ Component }">
-      <Transition name="router" @before-enter="onBeforeEnter" @before-leave="onBeforeLeave">
+      <Transition name="router" mode="out-in" @before-enter="onBeforeEnter" @before-leave="onBeforeLeave">
         <Component :is="Component" />
       </Transition>
     </RouterView>
@@ -29,24 +29,26 @@ const onBeforeLeave = () => {
 <style>
 /* 入场动画过程 */
 .router-enter-from {
+  opacity: 0;
   transform: translateX(-20px);
 }
 .router-enter-active {
-  transition: 0.6s;
-  transform: translateX(0px);
+  transition: all 0.7s;
 }
 .router-enter-to {
+  opacity: 1;
   transform: translateX(0px);
 }
 /* 出场动画过程 */
 .router-leave-from {
+  opacity: 1;
   transform: translateX(0px);
 }
 .router-leave-active {
-  transition: 0.6s;
-  transform: translateX(-20px);
+  transition: all 0.7s;
 }
 .router-leave-to {
+  opacity: 0;
   transform: translateX(-20px);
 }
 
