@@ -18,8 +18,13 @@ const onBeforeLeave = () => {
 
 <template>
   <ElConfigProvider :locale="zhCn">
-    <RouterView v-slot="{ Component }">
-      <Transition name="router" mode="out-in" @before-enter="onBeforeEnter" @before-leave="onBeforeLeave">
+    <RouterView v-slot="{ Component, route }">
+      <Transition
+        :name="route.meta.transitionName"
+        mode="out-in"
+        @before-enter="onBeforeEnter"
+        @before-leave="onBeforeLeave"
+      >
         <Component :is="Component" />
       </Transition>
     </RouterView>

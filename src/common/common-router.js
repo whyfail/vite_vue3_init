@@ -4,7 +4,7 @@
 
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-const routers = createRouter({
+const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -20,4 +20,13 @@ const routers = createRouter({
   ],
 });
 
-export default routers;
+/**
+ * 路由导航
+ * 可以在这里控制路由是否过渡，或者不同的过渡class
+ */
+router.afterEach((to) => {
+  // 切换过度样式
+  to.meta.transitionName = 'router';
+});
+
+export default router;
