@@ -5,6 +5,7 @@ import legacy from '@vitejs/plugin-legacy';
 import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
 import progress from 'vite-plugin-progress';
+import autoprefixer from 'autoprefixer';
 import Inspector from 'vite-plugin-vue-inspector';
 import postCssPxToRem from 'postcss-pxtorem';
 import vitePluginNoBug from 'vite-plugin-no-bug';
@@ -49,6 +50,10 @@ export default defineConfig({
           rootValue: 16, // 1rem的大小
           propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
           selectorBlackList: ['#app'],
+        }),
+        autoprefixer({
+          grid: true,
+          overrideBrowserslist: ['> 1%'],
         }),
       ],
     },
