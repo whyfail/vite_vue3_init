@@ -1,12 +1,12 @@
 import { createApp } from 'vue';
-import App from './App.vue';
-import router from './common/common-router';
 import { VueQueryPlugin } from '@tanstack/vue-query';
-import { pinia } from './stores';
-import 'dayjs/locale/zh-cn';
 import 'animate.css';
+import 'dayjs/locale/zh-cn';
+import App from './App.vue';
 import './assets/css/normalize.scss';
+import router from './common/common-router';
 import './common/common-set-rem';
+import { pinia } from './stores';
 
 const app = createApp(App);
 

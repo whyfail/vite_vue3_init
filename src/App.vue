@@ -2,8 +2,8 @@
 import { RouterView } from 'vue-router';
 import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
-import 'nprogress/nprogress.css';
 import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 // 路由进入前调用
 const onBeforeEnter = () => {
