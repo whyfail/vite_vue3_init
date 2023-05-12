@@ -1,17 +1,17 @@
-import { defineConfig } from 'vite';
+import ElementPlus from 'unplugin-element-plus/vite';
+import legacy from '@vitejs/plugin-legacy';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import legacy from '@vitejs/plugin-legacy';
-import { visualizer } from 'rollup-plugin-visualizer';
-import viteCompression from 'vite-plugin-compression';
-import progress from 'vite-plugin-progress';
 import autoprefixer from 'autoprefixer';
-import Inspector from 'vite-plugin-vue-inspector';
-import postCssPxToRem from 'postcss-pxtorem';
-import vitePluginNoBug from 'vite-plugin-no-bug';
-import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
-import ElementPlus from 'unplugin-element-plus/vite';
 import { fileURLToPath, URL } from 'node:url';
+import postCssPxToRem from 'postcss-pxtorem';
+import { visualizer } from 'rollup-plugin-visualizer';
+import { defineConfig } from 'vite';
+import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
+import viteCompression from 'vite-plugin-compression';
+import vitePluginNoBug from 'vite-plugin-no-bug';
+import progress from 'vite-plugin-progress';
+import Inspector from 'vite-plugin-vue-inspector';
 
 // https://vitejs.dev/config/
 export default defineConfig({
