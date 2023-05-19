@@ -3,9 +3,9 @@ import { VueQueryPlugin } from '@tanstack/vue-query';
 import 'animate.css';
 import 'dayjs/locale/zh-cn';
 import App from './App.vue';
-import './assets/css/normalize.scss';
-import router from './common/common-router';
-import './common/common-set-rem';
+import './assets/css/index.scss';
+import './plugins/plugins-set-rem';
+import router from './routes';
 import { pinia } from './stores';
 
 const app = createApp(App);

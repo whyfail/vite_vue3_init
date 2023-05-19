@@ -1,0 +1,24 @@
+/* 入场动画过程 */
+.router-enter-from {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.router-enter-active {
+  transition: all 0.7s;
+}
+.router-enter-to {
+  opacity: 1;
+  transform: translateX(0px);
+}
+/* 出场动画过程 */
+.router-leave-from {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.router-leave-active {
+  transition: all 0.7s;
+}
+.router-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
+}

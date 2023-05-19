@@ -6,7 +6,7 @@ import { ref } from 'vue';
 import { ElButton } from 'element-plus';
 import { useMutation, useQuery } from '@tanstack/vue-query';
 import { useNow, useDateFormat } from '@vueuse/core';
-import { csGetApi, csGetApiKey } from '../../apis/api_user';
+import { csGetApi, csGetApiKey } from '../../apis/api-user';
 
 let getData = ref('');
 let postData = ref('还未请求数据');

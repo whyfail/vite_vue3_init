@@ -1,5 +1,6 @@
 /**
  * 路由定义
+ * transitionName: 路由切换过渡动画名称
  */
 import { createRouter, createWebHashHistory } from 'vue-router';
 
@@ -9,23 +10,25 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../components/index.vue'),
+      meta: {
+        transitionName: 'router',
+      },
+      component: () => import('../pages/index.vue'),
     },
     {
       path: '/time',
       name: 'time',
-      component: () => import('../components/module-time/index.vue'),
+      meta: {
+        transitionName: 'router',
+      },
+      component: () => import('../pages/module-time/index.vue'),
     },
   ],
 });
 
 /**
  * 路由导航
- * 可以在这里控制路由是否过渡，或者不同的过渡class
  */
-router.afterEach((to) => {
-  // 切换过度样式
-  to.meta.transitionName = 'router';
-});
+router.afterEach(() => {});
 
 export default router;
