@@ -6,12 +6,12 @@ import autoprefixer from 'autoprefixer';
 import { fileURLToPath, URL } from 'node:url';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
+import Inspector from 'unplugin-vue-inspector/vite';
 import { defineConfig } from 'vite';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import viteCompression from 'vite-plugin-compression';
 import vitePluginNoBug from 'vite-plugin-no-bug';
 import progress from 'vite-plugin-progress';
-import Inspector from 'vite-plugin-vue-inspector';
 
 // https://vitejs.dev/config/
 export default defineConfig({
