@@ -5,8 +5,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import autoprefixer from 'autoprefixer';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
-import Inspector from 'unplugin-vue-inspector/vite';
 import { defineConfig } from 'vite';
+import { ViteCodeInspectorPlugin } from 'vite-code-inspector-plugin';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import viteCompression from 'vite-plugin-compression';
 import vitePluginNoBug from 'vite-plugin-no-bug';
@@ -18,9 +18,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    Inspector({
-      toggleComboKey: 'control-y',
-    }),
+    ViteCodeInspectorPlugin(),
     viteCompression({
       algorithm: 'gzip',
       verbose: false,
