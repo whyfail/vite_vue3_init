@@ -10,7 +10,6 @@ import { ViteCodeInspectorPlugin } from 'vite-code-inspector-plugin';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import viteCompression from 'vite-plugin-compression';
 import vitePluginNoBug from 'vite-plugin-no-bug';
-import progress from 'vite-plugin-progress';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -33,7 +32,6 @@ export default defineConfig({
       useSource: true,
     }),
     visualizer(),
-    progress(),
   ],
   resolve: {
     alias: {
