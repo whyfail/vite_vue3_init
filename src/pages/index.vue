@@ -21,89 +21,62 @@ const { storeUser } = useStore();
 
 <style scoped lang="scss">
 .demo_root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   user-select: none;
   .demo_content {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     .container {
       position: relative;
-      width: 350px;
-      border-radius: 20px;
-      padding: 40px;
       box-sizing: border-box;
+      width: 350px;
+      padding: 40px;
       background: #ecf0f3;
+      border-radius: 20px;
       box-shadow: 1px 1px 3px #cbced1, -1px -1px 3px white;
-      input {
-        caret-color: red;
-      }
       .brand-logo {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 20px;
-        height: 100px;
-        width: 100px;
         display: flex;
-        margin: auto;
-        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
         box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        font-size: 20px;
+        border-radius: 50%;
         box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
       }
 
       .inputs {
-        text-align: left;
         margin-top: 30px;
+        text-align: left;
       }
 
-      label,
-      input,
       button {
         display: block;
+        box-sizing: border-box;
         width: 100%;
         padding: 0;
         border: none;
         outline: none;
-        box-sizing: border-box;
-      }
-
-      label {
-        margin-bottom: 4px;
-      }
-
-      label:nth-of-type(2) {
-        margin-top: 12px;
-      }
-
-      input::placeholder {
-        color: gray;
-      }
-
-      input {
-        background: #ecf0f3;
-        padding: 10px;
-        padding-left: 20px;
-        height: 50px;
-        font-size: 14px;
-        border-radius: 50px;
-        box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
       }
       button {
-        color: gray;
+        margin-top: 30px;
         padding: 10px;
+        color: gray;
         font-size: 18px;
-        border-radius: 50px;
         background: #ecf0f3;
         border: 1px solid #e8e8e8;
-        transition: all 0.3s;
+        border-radius: 50px;
         box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-        margin-top: 30px;
         cursor: pointer;
+        transition: all 0.3s;
       }
 
       button:hover {
