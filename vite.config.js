@@ -6,10 +6,10 @@ import autoprefixer from 'autoprefixer';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
-import { ViteCodeInspectorPlugin } from 'vite-code-inspector-plugin';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import viteCompression from 'vite-plugin-compression';
 import vitePluginNoBug from 'vite-plugin-no-bug';
+import VueDevTools from 'vite-plugin-vue-devtools';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,7 +17,6 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    ViteCodeInspectorPlugin(),
     viteCompression({
       algorithm: 'gzip',
       verbose: false,
@@ -32,6 +31,7 @@ export default defineConfig({
       useSource: true,
     }),
     visualizer(),
+    VueDevTools(),
   ],
   resolve: {
     alias: {

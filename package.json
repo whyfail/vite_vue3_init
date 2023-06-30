@@ -50,10 +50,10 @@
     "unplugin-element-plus": "^0.4.1",
     "unplugin-vue-inspector": "^0.2.5",
     "vite": "^4.3.9",
-    "vite-code-inspector-plugin": "^0.0.16",
     "vite-plugin-chunk-split": "^0.4.4",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-no-bug": "^1.0.4"
+    "vite-plugin-no-bug": "^1.0.4",
+    "vite-plugin-vue-devtools": "^0.4.10"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,vue}": "npm run lint-staged:js",
