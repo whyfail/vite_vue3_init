@@ -59,7 +59,7 @@ export default defineConfig({
     },
   },
   server: {
-    // host: true,
+    host: true,
 
     proxy: {
       // 代理

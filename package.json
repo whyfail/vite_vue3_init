@@ -27,7 +27,8 @@
     "pinia": "^2.1.4",
     "sass": "^1.56.1",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.2"
+    "vue-router": "^4.2.2",
+    "vue3-lazyload": "^0.3.6"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",

@@ -7,6 +7,7 @@ import { ElButton } from 'element-plus';
 import { useMutation, useQuery } from '@tanstack/vue-query';
 import { useNow, useDateFormat } from '@vueuse/core';
 import { csGetApi, csGetApiKey } from '@/apis/api-user';
+import ImgXk from '@/assets/images/img-xk.png';
 
 let getData = ref('');
 let postData = ref('还未请求数据');
@@ -44,6 +45,8 @@ const formatted = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
     <ElButton type="warning" @click="csGetApiMutate">post请求</ElButton>
     <br />
     <ElButton type="primary" @click="$router.replace('/')">首页</ElButton>
+    <br />
+    <img v-lazy="ImgXk" width="600" />
   </div>
 </template>
 
