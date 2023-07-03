@@ -3,11 +3,15 @@
  * 时间组件
  */
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { ElButton } from 'element-plus';
 import { useMutation, useQuery } from '@tanstack/vue-query';
 import { useNow, useDateFormat } from '@vueuse/core';
+import { KEY_TOKEN } from '@/apis';
 import { csGetApi, csGetApiKey } from '@/apis/api-user';
 import ImgXk from '@/assets/images/img-xk.png';
+
+const router = useRouter();
 
 let getData = ref('');
 let postData = ref('还未请求数据');
@@ -32,6 +36,11 @@ const { isLoading: postIsLoading, mutate: csGetApiMutate } = useMutation({
 
 // 使用hooks获取实时时间
 const formatted = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
+
+const goLogin = () => {
+  localStorage.removeItem(KEY_TOKEN);
+  router.replace('/login');
+};
 </script>
 
 <template>
@@ -44,7 +53,7 @@ const formatted = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
     <br />
     <ElButton type="warning" @click="csGetApiMutate">post请求</ElButton>
     <br />
-    <ElButton type="primary" @click="$router.replace('/')">首页</ElButton>
+    <ElButton type="primary" @click="goLogin">登录页</ElButton>
     <br />
     <img v-lazy="ImgXk" width="600" />
   </div>
