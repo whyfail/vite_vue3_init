@@ -1,5 +1,8 @@
 <script setup>
+import { useRouter } from 'vue-router';
 import useStore from '../stores';
+
+const router = useRouter();
 
 const { storeUser } = useStore();
 </script>
@@ -12,7 +15,7 @@ const { storeUser } = useStore();
         <div class="inputs">
           <button @click="storeUser.addNumber">+</button>
           <button @click="storeUser.subtractNumber">-</button>
-          <button @click="$router.replace('/time')">时间路由</button>
+          <button @click="router.replace('/time')">时间路由</button>
         </div>
       </div>
     </div>
