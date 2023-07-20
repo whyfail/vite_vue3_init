@@ -6,7 +6,6 @@ import autoprefixer from 'autoprefixer';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
-import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import viteCompression from 'vite-plugin-compression';
 import vitePluginNoBug from 'vite-plugin-no-bug';
 import VueDevTools from 'vite-plugin-vue-devtools';
@@ -26,7 +25,6 @@ export default defineConfig({
       targets: ['defaults', 'not IE 11'],
     }),
     vitePluginNoBug(),
-    chunkSplitPlugin(),
     ElementPlus({
       useSource: true,
     }),
@@ -79,15 +77,12 @@ export default defineConfig({
           vueuse: ['@vueuse/core'],
           lodashEs: ['lodash-es'],
           elementPlus: ['element-plus'],
+          vueQuery: ['@tanstack/vue-query'],
         },
       },
     },
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
+  },
+  esbuild: {
+    drop: ['debugger', 'console'],
   },
 });
