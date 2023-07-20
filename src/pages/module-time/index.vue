@@ -9,7 +9,6 @@ import { useMutation, useQuery } from '@tanstack/vue-query';
 import { useNow, useDateFormat } from '@vueuse/core';
 import { KEY_TOKEN } from '@/apis';
 import { csGetApi, csGetApiKey } from '@/apis/api-user';
-import ImgXk from '@/assets/images/img-xk.png';
 
 const router = useRouter();
 
@@ -55,7 +54,7 @@ const goLogin = () => {
     <br />
     <ElButton type="primary" @click="goLogin">登录页</ElButton>
     <br />
-    <img v-lazy="ImgXk" width="600" />
+    <img v-lazy="'https://w.wallhaven.cc/full/o5/wallhaven-o59gvl.jpg'" width="600" />
   </div>
 </template>
 
