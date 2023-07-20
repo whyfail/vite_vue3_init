@@ -58,7 +58,6 @@ export default defineConfig({
   },
   server: {
     host: true,
-
     proxy: {
       // 代理
       '/PROXY': {
@@ -69,7 +68,11 @@ export default defineConfig({
       },
     },
   },
+  esbuild: {
+    drop: ['debugger', 'console'],
+  },
   build: {
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -81,8 +84,5 @@ export default defineConfig({
         },
       },
     },
-  },
-  esbuild: {
-    drop: ['debugger', 'console'],
   },
 });
