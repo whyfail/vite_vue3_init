@@ -10,6 +10,14 @@ function setRem() {
   let vH = window.innerHeight; // 当前窗口的高度
   // 非正常屏幕下的尺寸换算
   let dueH = (vW * 1080) / 1920;
+  // 最小窗口分辨率
+  const appMinHeight = document.querySelector('#app').style.minHeight;
+
+  // 最小窗口分辨率
+  if (!appMinHeight) {
+    document.querySelector('#app').style.minWidth = '1440px';
+    document.querySelector('#app').style.minHeight = '800px';
+  }
 
   // 最小适配分辨率
   if (vW < BASE_MIN_VW_VH.VW || vH < BASE_MIN_VW_VH.VH) {

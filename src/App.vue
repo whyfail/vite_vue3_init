@@ -4,6 +4,11 @@ import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
+
+// dayjs国际化
+dayjs.locale('zh-cn');
 
 // 路由进入前调用
 const onBeforeEnter = () => {
