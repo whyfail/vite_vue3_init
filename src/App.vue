@@ -6,6 +6,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+import RouterLoading from './components/RouterLoading.vue';
 
 // dayjs国际化
 dayjs.locale('zh-cn');
@@ -23,15 +24,22 @@ const onBeforeLeave = () => {
 
 <template>
   <ElConfigProvider :locale="zhCn">
-    <RouterView v-slot="{ Component, route }">
-      <Transition
-        :name="route.meta.transitionName"
-        mode="out-in"
-        @before-enter="onBeforeEnter"
-        @before-leave="onBeforeLeave"
-      >
-        <Component :is="Component" />
-      </Transition>
-    </RouterView>
+    <Suspense>
+      <template #default>
+        <RouterView v-slot="{ Component, route }">
+          <Transition
+            :name="route.meta.transitionName"
+            mode="out-in"
+            @before-enter="onBeforeEnter"
+            @before-leave="onBeforeLeave"
+          >
+            <Component :is="Component" />
+          </Transition>
+        </RouterView>
+      </template>
+      <template #fallback>
+        <RouterLoading />
+      </template>
+    </Suspense>
   </ElConfigProvider>
 </template>
