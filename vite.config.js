@@ -74,8 +74,10 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 1500,
+    reportCompressedSize: false,
     rollupOptions: {
       output: {
+        experimentalMinChunkSize: 1000,
         manualChunks: {
           vue: ['vue'],
           vueuse: ['@vueuse/core'],
