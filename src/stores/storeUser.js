@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia';
 
-const useUserStore = defineStore({
-  id: 'storeOther',
+const useUserStore = defineStore('storeOther', {
   state: () => ({
     number: 0,
+    role: 'admin',
   }),
 
   actions: {

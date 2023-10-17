@@ -9,6 +9,7 @@ import './assets/css/index.scss';
 import './plugins/plugins-set-rem';
 import router from './routes';
 import { pinia } from './stores';
+import directive from './directive';
 
 const app = createApp(App);
 
@@ -19,4 +20,5 @@ app.use(VueLazyLoad, {
   loading: ImageLoading,
   error: ImageError,
 });
+app.use(directive);
 app.mount('#app');

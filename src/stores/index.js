@@ -27,8 +27,5 @@ pinia.use(({ store }) => {
   });
 });
 
-export default function useStore() {
-  return {
-    storeUser: useUserStore(),
-  };
-}
+export { useUserStore };
+export default pinia;

@@ -1,21 +1,21 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import useStore from '../stores';
+import { useUserStore } from '@/stores';
 
 const router = useRouter();
 
-const { storeUser } = useStore();
+const userStore = useUserStore();
 </script>
 
 <template>
   <div class="demo_root">
     <div class="demo_content">
       <div class="container">
-        <div class="brand-logo">{{ storeUser.number }}</div>
+        <div class="brand-logo">{{ userStore.number }}</div>
         <div class="inputs">
-          <button @click="storeUser.addNumber">+</button>
-          <button @click="storeUser.subtractNumber">-</button>
-          <button @click="router.replace('/time')">时间路由</button>
+          <button @click="userStore.addNumber">+</button>
+          <button @click="userStore.subtractNumber">-</button>
+          <button v-permission="['admin']" @click="router.replace('/time')">时间路由</button>
         </div>
       </div>
     </div>
