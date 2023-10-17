@@ -4,7 +4,7 @@
  */
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { ElMessage } from 'element-plus';
-import { KEY_TOKEN } from '@/apis';
+import { isLogin } from '@/utils/auth';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -69,11 +69,8 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   // 如果需要登录
   if (to.meta.needLogin) {
-    // 获取token
-    const token = localStorage.getItem(KEY_TOKEN);
-
     // 如果有token 则直接放行
-    if (token) {
+    if (isLogin()) {
       next();
     } else {
       // 否则去登录页

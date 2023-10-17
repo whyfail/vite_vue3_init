@@ -7,8 +7,8 @@ import { useRouter } from 'vue-router';
 import { ElButton } from 'element-plus';
 import { useMutation, useQuery } from '@tanstack/vue-query';
 import { useNow, useDateFormat } from '@vueuse/core';
-import { KEY_TOKEN } from '@/apis';
 import { csGetApi, csGetApiKey } from '@/apis/api-user';
+import { clearToken } from '@/utils/auth';
 
 const router = useRouter();
 
@@ -37,7 +37,7 @@ const { isLoading: postIsLoading, mutate: csGetApiMutate } = useMutation({
 const formatted = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
 
 const goLogin = () => {
-  localStorage.removeItem(KEY_TOKEN);
+  clearToken();
   router.replace('/login');
 };
 </script>

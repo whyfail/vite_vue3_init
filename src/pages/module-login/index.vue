@@ -1,12 +1,12 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { ElButton } from 'element-plus';
-import { KEY_TOKEN } from '@/apis';
+import { setToken } from '@/utils/auth';
 
 const router = useRouter();
 
 const goHome = () => {
-  localStorage.setItem(KEY_TOKEN, '123');
+  setToken('123');
   router.replace('/home');
 };
 </script>
