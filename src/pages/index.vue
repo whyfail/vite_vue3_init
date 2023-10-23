@@ -41,9 +41,7 @@ const userStore = useUserStore();
       padding: 40px;
       background: #ecf0f3;
       border-radius: 20px;
-      box-shadow:
-        1px 1px 3px #cbced1,
-        -1px -1px 3px white;
+      box-shadow: 1px 1px 3px #cbced1, -1px -1px 3px white;
       .brand-logo {
         display: flex;
         display: flex;
@@ -55,9 +53,7 @@ const userStore = useUserStore();
         margin: auto;
         font-size: 20px;
         border-radius: 50%;
-        box-shadow:
-          7px 7px 10px #cbced1,
-          -7px -7px 10px white;
+        box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
       }
 
       .inputs {
@@ -81,9 +77,7 @@ const userStore = useUserStore();
         background: #ecf0f3;
         border: 1px solid #e8e8e8;
         border-radius: 50px;
-        box-shadow:
-          6px 6px 12px #c5c5c5,
-          -6px -6px 12px #ffffff;
+        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
         cursor: pointer;
         transition: all 0.3s;
       }
@@ -93,9 +87,7 @@ const userStore = useUserStore();
       }
 
       button:active {
-        box-shadow:
-          4px 4px 12px #c5c5c5,
-          -4px -4px 12px #ffffff;
+        box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
       }
     }
   }

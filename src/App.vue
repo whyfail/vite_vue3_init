@@ -2,10 +2,10 @@
 import { RouterView } from 'vue-router';
 import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 import RouterLoading from './components/RouterLoading.vue';
 
 // dayjs国际化

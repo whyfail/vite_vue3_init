@@ -6,10 +6,10 @@ import ImageError from '@/assets/images/img-error.png';
 import ImageLoading from '@/assets/images/img-loading.png';
 import App from './App.vue';
 import './assets/css/index.scss';
+import directive from './directive';
 import './plugins/plugins-set-rem';
 import router from './routes';
 import { pinia } from './stores';
-import directive from './directive';
 
 const app = createApp(App);
 
