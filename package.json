@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "@tanstack/vue-query": "^5.0.4",
     "@vueuse/core": "^10.5.0",
     "animate.css": "^4.1.1",
