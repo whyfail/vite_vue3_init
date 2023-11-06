@@ -2,6 +2,7 @@
  * stores状态模块化
  */
 import { createPinia } from 'pinia';
+import useCommonStore from './storeCommon.js';
 import useUserStore from './storeUser.js';
 
 // 创建全局状态
@@ -27,5 +28,5 @@ pinia.use(({ store }) => {
   });
 });
 
-export { useUserStore };
+export { useUserStore, useCommonStore };
 export default pinia;
