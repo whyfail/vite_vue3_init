@@ -4,6 +4,7 @@
  */
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { ElMessage } from 'element-plus';
+import NProgress from 'nprogress';
 import { isLogin } from '@/utils/auth';
 
 const router = createRouter({
@@ -11,6 +12,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: '/home',
+    },
+    {
+      path: '/',
+      component: () => import('../pages/index.vue'),
       children: [
         {
           path: '/home',
@@ -20,7 +26,7 @@ const router = createRouter({
             needLogin: true,
             transitionName: 'router',
           },
-          component: () => import('../pages/index.vue'),
+          component: () => import('../pages/module-home/index.vue'),
         },
         {
           path: '/time',
@@ -31,16 +37,6 @@ const router = createRouter({
             transitionName: 'router',
           },
           component: () => import('../pages/module-time/index.vue'),
-        },
-        {
-          path: '/login',
-          name: 'Login',
-          meta: {
-            title: '登录',
-            needLogin: false,
-            transitionName: 'router',
-          },
-          component: () => import('../pages/module-login/index.vue'),
         },
         // 404页面
         {
@@ -56,17 +52,25 @@ const router = createRouter({
       ],
     },
     {
-      path: '/:pathMatch(.*)',
-      redirect: '/404',
+      path: '/login',
+      name: 'Login',
+      meta: {
+        title: '登录',
+        needLogin: false,
+        transitionName: 'scale-slide',
+      },
+      component: () => import('../pages/module-login/index.vue'),
     },
     {
-      path: '/',
-      redirect: '/home',
+      path: '/:pathMatch(.*)',
+      redirect: '/404',
     },
   ],
 });
 
 router.beforeEach((to, from, next) => {
+  NProgress.start();
+
   // 如果需要登录
   if (to.meta.needLogin) {
     // 如果有token 则直接放行
@@ -85,6 +89,10 @@ router.beforeEach((to, from, next) => {
 
 // 修改标题的工作可以放在全局后置守卫
 router.afterEach((to) => {
+  setTimeout(() => {
+    NProgress.done();
+  }, 700);
+
   if (to.meta.title) {
     document.title = to.meta.title;
   }

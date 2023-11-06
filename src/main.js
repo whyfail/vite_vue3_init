@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import VueLazyLoad from 'vue3-lazyload';
 import { VueQueryPlugin } from '@tanstack/vue-query';
 import 'animate.css';
+import 'nprogress/nprogress.css';
 import ImageError from '@/assets/images/img-error.png';
 import ImageLoading from '@/assets/images/img-loading.png';
 import App from './App.vue';

@@ -4,22 +4,10 @@ import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 import RouterLoading from './components/RouterLoading.vue';
 
 // dayjs国际化
 dayjs.locale('zh-cn');
-
-// 路由进入前调用
-const onBeforeEnter = () => {
-  NProgress.done();
-};
-
-// 路由离开前调用
-const onBeforeLeave = () => {
-  NProgress.start();
-};
 </script>
 
 <template>
@@ -27,12 +15,7 @@ const onBeforeLeave = () => {
     <Suspense>
       <template #default>
         <RouterView v-slot="{ Component, route }">
-          <Transition
-            :name="route.meta.transitionName"
-            mode="out-in"
-            @before-enter="onBeforeEnter"
-            @before-leave="onBeforeLeave"
-          >
+          <Transition :name="route.meta.transitionName" mode="out-in">
             <Component :is="Component" />
           </Transition>
         </RouterView>
