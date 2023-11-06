@@ -1,5 +1,5 @@
 <script setup>
-import { ElAside, ElContainer, ElHeader, ElMain, ElScrollbar } from 'element-plus';
+import { ElContainer, ElHeader, ElMain, ElScrollbar } from 'element-plus';
 import LayoutAside from './LayoutAside.vue';
 import LayoutHeader from './LayoutHeader.vue';
 import LayoutMain from './LayoutMain.vue';
@@ -11,13 +11,15 @@ import LayoutMain from './LayoutMain.vue';
       <LayoutHeader />
     </ElHeader>
     <ElContainer>
-      <ElAside>
+      <div>
         <ElScrollbar>
           <LayoutAside />
         </ElScrollbar>
-      </ElAside>
+      </div>
       <ElMain>
-        <LayoutMain />
+        <ElScrollbar>
+          <LayoutMain />
+        </ElScrollbar>
       </ElMain>
     </ElContainer>
   </ElContainer>

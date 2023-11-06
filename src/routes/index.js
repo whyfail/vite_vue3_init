@@ -57,7 +57,7 @@ const router = createRouter({
       meta: {
         title: '登录',
         needLogin: false,
-        transitionName: 'scale-slide',
+        transitionName: 'router',
       },
       component: () => import('../pages/module-login/index.vue'),
     },

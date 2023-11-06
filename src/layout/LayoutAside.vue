@@ -29,4 +29,7 @@ const commonStore = useCommonStore();
 .root_menu {
   height: 100%;
 }
+.root_menu:not(.el-menu--collapse) {
+  width: 300px;
+}
 </style>
