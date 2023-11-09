@@ -5,6 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import autoprefixer from 'autoprefixer';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
+import UnoCSS from 'unocss/vite';
 import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
 import vitePluginNoBug from 'vite-plugin-no-bug';
@@ -23,6 +24,9 @@ export default defineConfig({
     }),
     legacy({
       targets: ['defaults', 'not IE 11'],
+    }),
+    UnoCSS({
+      configFile: './unocss.config.js',
     }),
     vitePluginNoBug(),
     ElementPlus({
