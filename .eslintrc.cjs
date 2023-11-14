@@ -10,6 +10,7 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
     'plugin:vue-scoped-css/vue3-recommended',
+    '@unocss',
   ],
   parserOptions: {
     ecmaVersion: 'latest',

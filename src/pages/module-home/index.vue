@@ -15,7 +15,9 @@ const userStore = useUserStore();
         <div class="inputs">
           <button @click="userStore.addNumber">+</button>
           <button @click="userStore.subtractNumber">-</button>
-          <button v-permission="['admin']" @click="router.replace('/time')">时间路由</button>
+          <button v-permission="['admin']" font-bold important-text-red @click="router.replace('/time')">
+            时间路由
+          </button>
         </div>
       </div>
     </div>
