@@ -65,11 +65,11 @@ export default defineConfig({
     open: true,
     proxy: {
       // 代理
-      '/PROXY': {
-        // !测试接口，新建项目后删除
-        target: 'https://v.api.aa1.cn',
+      '/API_BASE': {
+        // !测试接口，新建项目后删除 https://api.uomg.com/doc-rand.qinghua.html
+        target: 'https://api.uomg.com/api',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/PROXY/, ''),
+        rewrite: (path) => path.replace(/^\/API_BASE/, ''),
       },
     },
   },

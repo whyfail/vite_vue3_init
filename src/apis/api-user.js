@@ -21,7 +21,7 @@ export const userLoginApi = async (value) => {
 /**
  * !测试使用，新建项目后删除掉
  */
-export const csGetApiKey = '/PROXY/api/api-wenan-anwei/index.php';
+export const csGetApiKey = `${BASE_NAME}/rand.qinghua?format=json`;
 
 export const csGetApi = async (value) => {
   try {
