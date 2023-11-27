@@ -33,6 +33,7 @@
     "vue3-lazyload": "^0.3.8"
   },
   "devDependencies": {
+    "@plugin-web-update-notification/vite": "^1.7.0",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@unocss/eslint-config": "^0.57.3",
     "@vitejs/plugin-legacy": "^4.1.1",

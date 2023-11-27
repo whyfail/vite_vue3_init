@@ -1,4 +1,5 @@
 import ElementPlus from 'unplugin-element-plus/vite';
+import { webUpdateNotice } from '@plugin-web-update-notification/vite';
 import legacy from '@vitejs/plugin-legacy';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -34,6 +35,14 @@ export default defineConfig({
     }),
     visualizer(),
     VueDevTools(),
+    webUpdateNotice({
+      notificationProps: {
+        title: '系统升级通知',
+        description: '检测到当前系统版本已更新，请刷新页面后使用',
+        buttonText: '刷新',
+        dismissButtonText: '忽略',
+      },
+    }),
   ],
   resolve: {
     alias: {
