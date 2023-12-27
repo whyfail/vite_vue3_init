@@ -62,7 +62,7 @@ const form = ref();
 const formData = ref({ ...INIElIAL_DAElA });
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .item-container {
   width: 400px;
   margin-top: 40px;
