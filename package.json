@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@tanstack/vue-query": "^5.15.0",
+    "@tanstack/vue-query": "^5.17.1",
+    "@tanstack/vue-query-devtools": "^5.17.1",
     "@vueuse/core": "^10.5.0",
     "animate.css": "^4.1.1",
     "axios": "^1.5.1",
@@ -28,7 +29,7 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
     "sass": "^1.69.4",
-    "vue": "^3.3.13",
+    "vue": "^3.4.5",
     "vue-router": "^4.2.5",
     "vue3-lazyload": "^0.3.8"
   },
@@ -37,7 +38,7 @@
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@unocss/eslint-config": "^0.57.3",
     "@vitejs/plugin-legacy": "^5.2.0",
-    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitejs/plugin-vue": "^5.0.2",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.24.0",
