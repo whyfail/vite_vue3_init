@@ -16,7 +16,7 @@ const router = createRouter({
     },
     {
       path: '/',
-      component: () => import('../pages/index.vue'),
+      component: () => import('@/pages/index.vue'),
       children: [
         {
           path: '/home',
@@ -26,7 +26,7 @@ const router = createRouter({
             needLogin: true,
             transitionName: 'router',
           },
-          component: () => import('../pages/module-home/index.vue'),
+          component: () => import('@/pages/module-home/index.vue'),
         },
         {
           path: '/time',
@@ -36,7 +36,7 @@ const router = createRouter({
             needLogin: true,
             transitionName: 'router',
           },
-          component: () => import('../pages/module-time/index.vue'),
+          component: () => import('@/pages/module-time/index.vue'),
         },
         // 404页面
         {
