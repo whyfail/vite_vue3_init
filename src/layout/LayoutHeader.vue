@@ -26,7 +26,7 @@ const goTo = (val) => {
 
     <ElPopover placement="bottom" :width="150" trigger="click" :popper-style="{ paddingLeft: '20px' }">
       <template #reference>
-        <ElButton type="text">
+        <ElButton type="primary" link>
           <ElSpace>
             <ElIcon><User /></ElIcon>
             <span>admin</span>
@@ -35,8 +35,8 @@ const goTo = (val) => {
         </ElButton>
       </template>
       <ElSpace direction="vertical">
-        <ElButton :icon="UserFilled" type="text">个人中心</ElButton>
-        <ElButton :icon="SwitchButton" type="text" @click="goTo('/login')">退出登录</ElButton>
+        <ElButton :icon="UserFilled" type="primary" link>个人中心</ElButton>
+        <ElButton :icon="SwitchButton" type="primary" link @click="goTo('/login')">退出登录</ElButton>
       </ElSpace>
     </ElPopover>
   </header>
