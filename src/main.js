@@ -1,6 +1,5 @@
 import { createApp } from 'vue';
 import VueLazyLoad from 'vue3-lazyload';
-import { VueQueryPlugin } from '@tanstack/vue-query';
 import 'animate.css';
 import 'nprogress/nprogress.css';
 import 'virtual:uno.css';
@@ -16,7 +15,6 @@ import { pinia } from './stores';
 const app = createApp(App);
 
 app.use(router);
-app.use(VueQueryPlugin);
 app.use(pinia);
 app.use(VueLazyLoad, {
   loading: ImageLoading,

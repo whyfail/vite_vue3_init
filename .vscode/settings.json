@@ -1,8 +1,7 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode", // 用 Prettier 格式化
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
-    "source.fixAll": "always"
+    "source.fixAll": "explicit"
   },
   "editor.formatOnSave": true, // 保存时自动格式化
   "files.eol": "auto",

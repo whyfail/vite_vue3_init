@@ -2,7 +2,6 @@
 import { RouterView } from 'vue-router';
 import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
-import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import RouterLoading from './components/RouterLoading.vue';
@@ -25,6 +24,5 @@ dayjs.locale('zh-cn');
         <RouterLoading />
       </template>
     </Suspense>
-    <VueQueryDevtools />
   </ElConfigProvider>
 </template>

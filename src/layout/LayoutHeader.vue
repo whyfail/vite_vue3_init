@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import { ArrowDown, Operation, SwitchButton, User, UserFilled } from '@element-plus/icons-vue';
-import { ElButton, ElIcon, ElImage, ElPopover, ElSpace } from 'element-plus';
+import { Operation, SwitchButton, UserFilled } from '@element-plus/icons-vue';
+import { ElAvatar, ElDropdown, ElDropdownItem, ElIcon, ElImage, ElDropdownMenu, ElSpace } from 'element-plus';
 import AssetLogoFull from '@/assets/images/login/assets-logo-full.svg';
 import AssetLogo from '@/assets/images/login/assets-t-logo.svg';
 import { useCommonStore } from '@/stores';
@@ -16,45 +16,28 @@ const goTo = (val) => {
 </script>
 
 <template>
-  <header class="root_header">
-    <div class="root_header_logo">
-      <ElImage :src="commonStore.logoNoFull ? AssetLogo : AssetLogoFull" style="height: 34px; margin-right: 20px" />
-      <ElIcon size="20" style="cursor: pointer" @click="commonStore.changeLogoFull(!commonStore.logoNoFull)"
-        ><Operation
-      /></ElIcon>
+  <header
+    class="relative z-99 h-56px w-100% flex items-center justify-between px-20px shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white]"
+  >
+    <div class="flex items-center">
+      <ElImage :src="commonStore.logoNoFull ? AssetLogo : AssetLogoFull" class="mr-20px h-34px" />
+      <ElIcon size="20" style="cursor: pointer" @click="commonStore.changeLogoFull(!commonStore.logoNoFull)">
+        <Operation />
+      </ElIcon>
     </div>
 
-    <ElPopover placement="bottom" :width="150" trigger="click" :popper-style="{ paddingLeft: '20px' }">
-      <template #reference>
-        <ElButton type="primary" link>
-          <ElSpace>
-            <ElIcon><User /></ElIcon>
-            <span>admin</span>
-            <ElIcon><ArrowDown /></ElIcon>
-          </ElSpace>
-        </ElButton>
-      </template>
-      <ElSpace direction="vertical">
-        <ElButton :icon="UserFilled" type="primary" link>个人中心</ElButton>
-        <ElButton :icon="SwitchButton" type="primary" link @click="goTo('/login')">退出登录</ElButton>
-      </ElSpace>
-    </ElPopover>
+    <ElSpace>
+      <ElDropdown class="ml-20px cursor-pointer" @command="handleCommand">
+        <ElAvatar :size="30" :src="userStore?.userInfo?.avatar"> 吴 </ElAvatar>
+        <template #dropdown>
+          <ElDropdownMenu>
+            <ElDropdownItem :icon="UserFilled" command="Login" divided>个人中心</ElDropdownItem>
+            <ElDropdownItem :icon="SwitchButton" command="Login" divided @click="goTo('/login')">
+              退出登录
+            </ElDropdownItem>
+          </ElDropdownMenu>
+        </template>
+      </ElDropdown>
+    </ElSpace>
   </header>
 </template>
-
-<style lang="scss" scoped>
-.root_header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  .root_header_logo {
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

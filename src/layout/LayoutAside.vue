@@ -13,7 +13,7 @@ const commonStore = useCommonStore();
 </script>
 
 <template>
-  <ElMenu class="root_menu" :collapse="commonStore.logoNoFull" router :default-active="defaultActive">
+  <ElMenu class="h-full w-300px" :collapse="commonStore.logoNoFull" router :default-active="defaultActive">
     <ElMenuItem index="/home">
       <ElIcon><HomeFilled /></ElIcon>
       <template #title>首页</template>
@@ -24,12 +24,3 @@ const commonStore = useCommonStore();
     </ElMenuItem>
   </ElMenu>
 </template>
-
-<style lang="scss" scoped>
-.root_menu {
-  height: 100%;
-}
-.root_menu:not(.el-menu--collapse) {
-  width: 300px;
-}
-</style>

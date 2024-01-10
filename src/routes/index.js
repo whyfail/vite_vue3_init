@@ -38,17 +38,6 @@ const router = createRouter({
           },
           component: () => import('@/pages/module-time/index.vue'),
         },
-        // 404页面
-        {
-          path: '/404',
-          name: '404',
-          meta: {
-            title: '404',
-            needLogin: false,
-            transitionName: 'router',
-          },
-          component: () => import('@/components/Router404.vue'),
-        },
       ],
     },
     {
@@ -63,7 +52,13 @@ const router = createRouter({
     },
     {
       path: '/:pathMatch(.*)',
-      redirect: '/404',
+      name: '404',
+      meta: {
+        title: '404',
+        needLogin: false,
+        transitionName: 'router',
+      },
+      component: () => import('@/components/Router404.vue'),
     },
   ],
 });

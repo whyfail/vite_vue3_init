@@ -93,10 +93,9 @@ export default defineConfig({
         experimentalMinChunkSize: 1000,
         manualChunks: {
           vue: ['vue'],
-          vueuse: ['@vueuse/core'],
+          vueHooksPlus: ['vue-hooks-plus'],
           lodashEs: ['lodash-es'],
           elementPlus: ['element-plus'],
-          vueQuery: ['@tanstack/vue-query'],
         },
       },
     },
