@@ -15,6 +15,7 @@ let postData = ref('还未请求数据');
 
 // get获取接口
 const { loading, data: apiData } = useRequest(csGetApi, {
+  refreshOnWindowFocus: true, // 在屏幕重新获取焦点或重新显示时，重新发起请求
   cacheKey: csGetApiKey,
 });
 
