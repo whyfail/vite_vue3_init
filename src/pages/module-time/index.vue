@@ -17,6 +17,7 @@ let postData = ref('还未请求数据');
 const { loading, data: apiData } = useRequest(csGetApi, {
   refreshOnWindowFocus: true, // 在屏幕重新获取焦点或重新显示时，重新发起请求
   cacheKey: csGetApiKey,
+  debugKey: 'debugKey',
 });
 
 // post获取接口
@@ -52,6 +53,6 @@ const goLogin = () => {
     <br />
     <ElButton type="primary" @click="goLogin">登录页</ElButton>
     <br />
-    <img v-lazy="'https://w.wallhaven.cc/full/o5/wallhaven-o59gvl1.jpg'" width="600" />
+    <img v-lazy="'https://w.wallhaven.cc/full/jx/wallhaven-jxl31y.png'" width="600" />
   </div>
 </template>

@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import VueLazyLoad from 'vue3-lazyload';
+import { useRequestDevToolsPlugin } from 'vue-hooks-plus';
 import 'animate.css';
 import 'nprogress/nprogress.css';
 import 'virtual:uno.css';
@@ -21,4 +22,5 @@ app.use(VueLazyLoad, {
   error: ImageError,
 });
 app.use(directive);
+app.use(useRequestDevToolsPlugin);
 app.mount('#app');

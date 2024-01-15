@@ -27,8 +27,8 @@ const goTo = (val) => {
     </div>
 
     <ElSpace>
-      <ElDropdown class="ml-20px cursor-pointer" @command="handleCommand">
-        <ElAvatar :size="30" :src="userStore?.userInfo?.avatar"> 吴 </ElAvatar>
+      <ElDropdown class="ml-20px cursor-pointer">
+        <ElAvatar :size="30"> 吴 </ElAvatar>
         <template #dropdown>
           <ElDropdownMenu>
             <ElDropdownItem :icon="UserFilled" command="Login" divided>个人中心</ElDropdownItem>
