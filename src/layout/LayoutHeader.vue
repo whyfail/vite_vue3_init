@@ -1,6 +1,7 @@
 <script setup>
+import { useWinResize } from 'vue-hooks-plus';
 import { useRouter } from 'vue-router';
-import { Operation, SwitchButton, UserFilled } from '@element-plus/icons-vue';
+import { Operation, SwitchButton } from '@element-plus/icons-vue';
 import { ElAvatar, ElDropdown, ElDropdownItem, ElIcon, ElImage, ElDropdownMenu, ElSpace } from 'element-plus';
 import AssetLogoFull from '@/assets/images/login/assets-logo-full.svg';
 import AssetLogo from '@/assets/images/login/assets-t-logo.svg';
@@ -13,6 +14,13 @@ const commonStore = useCommonStore();
 const goTo = (val) => {
   router.replace(val);
 };
+
+// 监听windows的resize事件
+useWinResize(() => {
+  const width = window.innerWidth;
+
+  commonStore.changeLogoFull(width < 1400);
+});
 </script>
 
 <template>
@@ -31,7 +39,6 @@ const goTo = (val) => {
         <ElAvatar :size="30"> 吴 </ElAvatar>
         <template #dropdown>
           <ElDropdownMenu>
-            <ElDropdownItem :icon="UserFilled" command="Login" divided>个人中心</ElDropdownItem>
             <ElDropdownItem :icon="SwitchButton" command="Login" divided @click="goTo('/login')">
               退出登录
             </ElDropdownItem>

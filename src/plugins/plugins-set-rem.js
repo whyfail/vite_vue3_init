@@ -1,7 +1,7 @@
 /**
  *  改变窗口大小时重新设置 rem
  */
-import { BASE_FONT_SIZE, BASE_MIN_VW_VH } from '../common/common-const';
+import { BASE_FONT_SIZE, BASE_MIN_VW_VH } from '@/common/common-const';
 
 // 设置 rem 函数
 function setRem() {
@@ -10,13 +10,6 @@ function setRem() {
   let vH = window.innerHeight; // 当前窗口的高度
   // 非正常屏幕下的尺寸换算
   let dueH = (vW * 1080) / 1920;
-  // 最小窗口分辨率
-  const appMinWidth = document.querySelector('#app').style.minWidth;
-
-  // 最小窗口分辨率
-  if (!appMinWidth) {
-    document.querySelector('#app').style.minWidth = '1440px';
-  }
 
   // 最小适配分辨率
   if (vW < BASE_MIN_VW_VH.VW || vH < BASE_MIN_VW_VH.VH) {
