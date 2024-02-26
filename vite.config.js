@@ -7,6 +7,8 @@ import autoprefixer from 'autoprefixer';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
 import UnoCSS from 'unocss/vite';
+import Printer from 'unplugin-printer/vite';
+import TurboConsole from 'unplugin-turbo-console/vite';
 import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
 import vitePluginNoBug from 'vite-plugin-no-bug';
@@ -33,7 +35,18 @@ export default defineConfig({
     ElementPlus({
       useSource: true,
     }),
-    visualizer(),
+    visualizer({ gzipSize: true }),
+    TurboConsole({
+      prefix: '___________TB_____________',
+      suffix: '___________江湖_____________',
+    }),
+    Printer({
+      info: [
+        ({ lightCyan, green, bold }) => {
+          return `  ${green('➜')}  ${bold('官网')}:  ${lightCyan('https://whyfail.gitee.io/cwa-document/')}`;
+        },
+      ],
+    }),
     VueDevTools(),
     webUpdateNotice({
       notificationProps: {
