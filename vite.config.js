@@ -37,8 +37,8 @@ export default defineConfig({
     }),
     visualizer({ gzipSize: true }),
     TurboConsole({
-      prefix: '___________TB_____________',
-      suffix: '___________江湖_____________',
+      prefix: '___________打印 ↓_____________',
+      suffix: '___________打印 ↑_____________',
     }),
     Printer({
       info: [
