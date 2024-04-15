@@ -89,7 +89,7 @@ router.afterEach((to) => {
   }, 700);
 
   if (to.meta.title) {
-    document.title = to.meta.title;
+    document.title = `${import.meta.env.VITE_APP_NAME} - ${to.meta.title}`;
   }
 });
 
