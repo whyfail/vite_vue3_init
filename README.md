@@ -68,6 +68,18 @@ git rebase --continue ，// 可以线性的连接本地分支与远程分支，�
 git push
 ```
 
+- git 忽略换行符的变化（建议执行）
+
+```
+git config --global core.autocrlf input
+```
+
+- git 文件名的大小写敏感（建议执行）
+
+```
+git config --global core.ignorecase false
+```
+
 #### 项目功能简介
 
 - `element-plus` element-plus UI 库，修改其主题样式可以在`src/assets/css/element-plus.scss`中进行自定义主题
