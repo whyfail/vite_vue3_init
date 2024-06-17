@@ -42,7 +42,7 @@ const goLogin = () => {
 </script>
 
 <template>
-  <div class="p-h-100% w-100% flex flex-col flex-items-center p-t-80px">
+  <div class="w-100% flex flex-col flex-items-center p-t-80px">
     <div>{{ valueRef }}</div>
     <br />
     <div>{{ loading ? '加载中' : apiData?.content }}</div>

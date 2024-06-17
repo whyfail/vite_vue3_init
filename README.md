@@ -86,7 +86,7 @@ git config --global core.ignorecase false
 - `lint-staged husky`:用于代码提交时进行`eslint prettier`代码校验，校验通过后，才能提交代码
 - `package.json` 中 `engines`用来定义`node`版本，可根据自己的需要自行修改
 - `.npmrc` 文件是用来约束 npm 的，`package.json` 中 `engines`只能限制`yarn`，所以需要这个文件配置
-- `vite-plugin-vue-devtools` 可替代 `vue-devtools` ,还增加点击跳转代码功能
+- [code-inspector-plugin](https://inspector.fe-dev.cn/guide/introduction.html) 点击页面上的 DOM，它能够自动打开你的 IDE 并将光标定位到 DOM 对应的源代码位置 (Mac 系统默认组合键是 Option + Shift；Window 的默认组合键是 Alt + Shift，在浏览器控制台会输出相关组合键提示)。
 - `postcss-pxtorem` 用来将 css 中的 px 单位转换为 rem，`css in js`和行内样式无效
 - `viteCompression` 用来配置开启 gzip 打包
 - `rollup-plugin-visualizer` 用来打包时展示包大小细节
