@@ -9,7 +9,6 @@ import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
 import UnoCSS from 'unocss/vite';
 import Printer from 'unplugin-printer/vite';
-import TurboConsole from 'unplugin-turbo-console/vite';
 import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
 import eslint from 'vite-plugin-eslint';
@@ -42,14 +41,10 @@ export default defineConfig({
       useSource: true,
     }),
     visualizer({ gzipSize: true }),
-    TurboConsole({
-      prefix: '___________打印 ↓_____________',
-      suffix: '___________打印 ↑_____________',
-    }),
     Printer({
       info: [
         ({ lightCyan, green, bold }) => {
-          return `  ${green('➜')}  ${bold('官网')}:  ${lightCyan('https://whyfail.gitee.io/cwa-document/')}`;
+          return `  ${green('➜')}  ${bold('官网')}:  ${lightCyan('https://whyfail.github.io/cwa-document')}`;
         },
       ],
     }),
