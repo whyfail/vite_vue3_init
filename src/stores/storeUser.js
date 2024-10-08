@@ -14,6 +14,8 @@ const useUserStore = defineStore('storeOther', {
       this.number -= 1;
     },
   },
+  // 持久化
+  persist: true,
 });
 
 export default useUserStore;

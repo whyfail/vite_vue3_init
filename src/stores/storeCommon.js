@@ -10,6 +10,11 @@ const useCommonStore = defineStore('storeCommon', {
       this.logoNoFull = val;
     },
   },
+  // 持久化
+  persist: {
+    storage: sessionStorage,
+    key: 'storeCommon',
+  },
 });
 
 export default useCommonStore;
