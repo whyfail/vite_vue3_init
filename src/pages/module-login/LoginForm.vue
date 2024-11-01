@@ -33,7 +33,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { User, Lock } from '@element-plus/icons-vue';
 import { ElButton, ElCheckbox, ElForm, ElFormItem, ElInput, ElMessage } from 'element-plus';
-import { setToken } from '@/utils/auth';
+import { setToken } from '@/utils/auth.js';
 
 const router = useRouter();
 

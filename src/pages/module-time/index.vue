@@ -6,8 +6,8 @@ import { ref } from 'vue';
 import { useInterval, useRequest } from 'vue-hooks-plus';
 import { useRouter } from 'vue-router';
 import { ElButton } from 'element-plus';
-import { csGetApi, csGetApiKey } from '@/apis/api-user';
-import { clearToken } from '@/utils/auth';
+import { csGetApi, csGetApiKey } from '@/apis/api-user.js';
+import { clearToken } from '@/utils/auth.js';
 
 const router = useRouter();
 

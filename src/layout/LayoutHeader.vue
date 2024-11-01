@@ -5,7 +5,7 @@ import { Operation, SwitchButton } from '@element-plus/icons-vue';
 import { ElAvatar, ElDropdown, ElDropdownItem, ElIcon, ElImage, ElDropdownMenu, ElSpace } from 'element-plus';
 import AssetLogoFull from '@/assets/images/login/assets-logo-full.svg';
 import AssetLogo from '@/assets/images/login/assets-t-logo.svg';
-import { useCommonStore } from '@/stores';
+import { useCommonStore } from '@/stores/index.js';
 
 const router = useRouter();
 const commonStore = useCommonStore();

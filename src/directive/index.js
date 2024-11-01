@@ -1,7 +1,7 @@
 /**
  * 自定义指令
  */
-import permission from './permission';
+import permission from './permission.js';
 
 export default {
   install(Vue) {

@@ -20,7 +20,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['vue'],
+  plugins: ['vue', 'import'],
   rules: {
     'vue/component-name-in-template-casing': [
       'error',
@@ -68,5 +68,6 @@ module.exports = {
         ignores: ['index', 'Router404'],
       },
     ],
+    'import/extensions': ['error', 'always', { ignorePackages: true }],
   },
 };

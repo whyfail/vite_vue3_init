@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { Document, HomeFilled } from '@element-plus/icons-vue';
 import { ElIcon, ElMenu, ElMenuItem } from 'element-plus';
-import { useCommonStore } from '@/stores';
+import { useCommonStore } from '@/stores/index.js';
 
 const route = useRoute();
 

@@ -5,7 +5,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import NProgress from 'nprogress';
-import { isLogin } from '@/utils/auth';
+import { isLogin } from '@/utils/auth.js';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
