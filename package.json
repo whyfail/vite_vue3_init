@@ -35,7 +35,7 @@
   "devDependencies": {
     "@plugin-web-update-notification/vite": "^1.7.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@unocss/eslint-config": "^0.57.7",
+    "@unocss/eslint-config": "^0.65.2",
     "@vitejs/plugin-legacy": "^6.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
@@ -53,7 +53,7 @@
     "prettier": "^2.8.8",
     "prettier-plugin-rational-order": "^1.0.3",
     "rollup-plugin-visualizer": "^5.12.0",
-    "unocss": "^0.57.7",
+    "unocss": "^0.65.2",
     "unplugin-element-plus": "^0.8.0",
     "unplugin-printer": "^0.0.2",
     "vite": "^6.0.1",
