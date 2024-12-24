@@ -104,7 +104,7 @@ git config --global core.ignorecase false
 - 加上配置后执行`npm i vite-plugin-imagemin -D`
 - 在`vite.config`文件中加上插件配置：
 
-```
+```JavaScript
 import viteImagemin from 'vite-plugin-imagemin'
 
 export default () => {

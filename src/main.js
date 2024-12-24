@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import VueLazyLoad from 'vue3-lazyload';
 import { useRequestDevToolsPlugin } from 'vue-hooks-plus';
+import 'element-plus/theme-chalk/el-loading.css';
 import 'animate.css';
 import 'nprogress/nprogress.css';
 import 'virtual:uno.css';
