@@ -42,7 +42,7 @@ const goLogin = () => {
 </script>
 
 <template>
-  <div class="w-100% flex flex-col flex-items-center p-t-80px">
+  <div class="w-[100%] flex flex-col flex-items-center p-t-[80px]">
     <div>{{ valueRef }}</div>
     <br />
     <div>{{ loading ? '加载中' : apiData?.content }}</div>
@@ -52,6 +52,8 @@ const goLogin = () => {
     <ElButton type="warning" @click="csGetApiRun">post请求</ElButton>
     <br />
     <ElButton type="primary" @click="goLogin">登录页</ElButton>
+    <br />
+    <div>AutoDecimal插件计算基本运算自动转换：{{ 0.1 + 0.2 }}</div>
     <br />
     <img v-lazy="'https://w.wallhaven.cc/full/jx/wallhaven-jxl31y.png'" width="600" />
   </div>

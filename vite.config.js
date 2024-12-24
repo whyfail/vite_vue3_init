@@ -9,6 +9,7 @@ import fs from 'fs';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
 import UnoCSS from 'unocss/vite';
+import AutoDecimal from 'unplugin-auto-decimal/vite';
 import Printer from 'unplugin-printer/vite';
 import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
@@ -36,6 +37,7 @@ export default defineConfig(() => {
   return {
     base: './',
     plugins: [
+      AutoDecimal(),
       vue(),
       vueJsx(),
       viteCompression({
