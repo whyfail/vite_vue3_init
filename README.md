@@ -94,6 +94,7 @@ git config --global core.ignorecase false
 - `lodash` 包含了多功能的 js 工具库
 - `vue-router` vue 路由功能库
 - `preinstall` 该命令是为了强制包管理器，这里使用的是 npm
+- `AutoDecimal` 一个将 JavaScript 中的基本运算自动转换成 decimal.js 方法的插件
 
 #### 项目打包图片优化方案
 
