@@ -7,7 +7,7 @@ import LayoutMain from './LayoutMain.vue';
 <template>
   <div class="h-full">
     <LayoutHeader />
-    <div class="h-[calc(100%-56px)] w-100% flex">
+    <div class="h-[calc(100%-56px)] w-[100%] flex">
       <LayoutAside />
       <LayoutMain />
     </div>

@@ -1,15 +1,15 @@
-import ElementPlus from 'unplugin-element-plus/vite';
+import fs from 'node:fs';
 import { webUpdateNotice } from '@plugin-web-update-notification/vite';
 import legacy from '@vitejs/plugin-legacy';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import autoprefixer from 'autoprefixer';
 import { codeInspectorPlugin } from 'code-inspector-plugin';
-import fs from 'fs';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
 import UnoCSS from 'unocss/vite';
 import AutoDecimal from 'unplugin-auto-decimal/vite';
+import ElementPlus from 'unplugin-element-plus/vite';
 import Printer from 'unplugin-printer/vite';
 import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
@@ -114,7 +114,7 @@ export default defineConfig(() => {
           // !测试接口，新建项目后删除 https://api.uomg.com/doc-rand.qinghua.html
           target: 'https://api.uomg.com/api',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/API_BASE/, ''),
+          rewrite: path => path.replace(/^\/API_BASE/, ''),
         },
       },
     },

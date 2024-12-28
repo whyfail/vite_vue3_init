@@ -18,8 +18,9 @@ function checkPermission(el, binding) {
         el.parentNode.removeChild(el);
       }
     }
-  } else {
-    throw new Error(`需要权限组，比如： v-permission="['admin','user']"`);
+  }
+  else {
+    throw new TypeError(`需要权限组，比如： v-permission="['admin','user']"`);
   }
 }
 

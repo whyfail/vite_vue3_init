@@ -83,7 +83,6 @@ git config --global core.ignorecase false
 #### 项目功能简介
 
 - `element-plus` element-plus UI 库，修改其主题样式可以在`src/assets/css/element-plus.scss`中进行自定义主题
-- `lint-staged husky`:用于代码提交时进行`eslint prettier`代码校验，校验通过后，才能提交代码
 - `package.json` 中 `engines`用来定义`node`版本，可根据自己的需要自行修改
 - `.npmrc` 文件是用来约束 npm 的，`package.json` 中 `engines`只能限制`yarn`，所以需要这个文件配置
 - [code-inspector-plugin](https://inspector.fe-dev.cn/guide/introduction.html) 点击页面上的 DOM，它能够自动打开你的 IDE 并将光标定位到 DOM 对应的源代码位置 (Mac 系统默认组合键是 Option + Shift；Window 的默认组合键是 Alt + Shift，在浏览器控制台会输出相关组合键提示)。
@@ -95,6 +94,9 @@ git config --global core.ignorecase false
 - `vue-router` vue 路由功能库
 - `preinstall` 该命令是为了强制包管理器，这里使用的是 npm
 - `AutoDecimal` 一个将 JavaScript 中的基本运算自动转换成 decimal.js 方法的插件
+- `@antfu/eslint-config` antfu的eslint 配置，包含了最新的 eslint 规则
+- `@stylistic/eslint-plugin` 一个自定义 eslint 规则，用来规范代码风格
+- `simple-git-hooks`: 一个用来管理 git hook 的库，可以用来自动格式化代码、eslint 检查等等，相当于简易版的 husky
 
 #### 项目打包图片优化方案
 

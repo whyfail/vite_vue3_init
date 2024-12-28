@@ -1,43 +1,12 @@
-module.exports = {
-  env: {
-    browser: true,
-    node: true,
-    es2021: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:vue/vue3-recommended',
-    'prettier',
-    'plugin:prettier/recommended',
-    'plugin:vue-scoped-css/vue3-recommended',
-    '@unocss',
-  ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    ecmaFeatures: {
-      jsx: true,
-      tsx: true,
-    },
-    sourceType: 'module',
-  },
-  plugins: ['vue', 'import'],
+// eslint.config.js
+import antfu from '@antfu/eslint-config';
+import stylistic from '@stylistic/eslint-plugin';
+
+export default antfu({
+  plugins: [stylistic],
   rules: {
-    'vue/component-name-in-template-casing': [
-      'error',
-      'PascalCase',
-      {
-        registeredComponentsOnly: false,
-        ignores: [],
-      },
-    ],
-    'vue/no-unused-components': 'error',
-    'vue/no-undef-components': 'error',
-    'no-console': [
-      'error',
-      {
-        allow: ['warn', 'error', 'info', 'debug', 'groupCollapsed', 'groupEnd'],
-      },
-    ],
+    '@stylistic/semi': [2, 'always'],
+    'no-unused-vars': 'error',
     'padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: '*', next: 'return' },
@@ -59,15 +28,28 @@ module.exports = {
       { blankLine: 'always', prev: '*', next: ['block', 'block-like'] },
       { blankLine: 'always', prev: ['block', 'block-like'], next: '*' },
     ],
-    indent: 'off',
-    'no-undef': ['error', { typeof: true }],
-    'no-unused-vars': 'error',
+    'no-console': [
+      'error',
+      {
+        allow: ['warn', 'error', 'info', 'debug', 'groupCollapsed', 'groupEnd'],
+      },
+    ],
+    'import/extensions': ['error', 'always', { ignorePackages: true }],
     'vue/multi-word-component-names': [
       'error',
       {
         ignores: ['index', 'Router404'],
       },
     ],
-    'import/extensions': ['error', 'always', { ignorePackages: true }],
+    'vue/component-name-in-template-casing': [
+      'error',
+      'PascalCase',
+      {
+        registeredComponentsOnly: false,
+        ignores: [],
+      },
+    ],
+    'vue/no-unused-components': 'error',
+    'vue/no-undef-components': 'error',
   },
-};
+});

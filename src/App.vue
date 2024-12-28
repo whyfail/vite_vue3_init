@@ -1,11 +1,11 @@
 <script setup>
-import { useRequestProvider } from 'vue-hooks-plus';
-import { RouterView } from 'vue-router';
+import dayjs from 'dayjs';
 import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
-import dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
+import { useRequestProvider } from 'vue-hooks-plus';
+import { RouterView } from 'vue-router';
 import RouterLoading from './components/RouterLoading.vue';
+import 'dayjs/locale/zh-cn';
 
 // 全局配置 useRequestProvider
 useRequestProvider({

@@ -1,12 +1,12 @@
+import { isLogin } from '@/utils/auth.js';
+import { ElMessage } from 'element-plus';
+import NProgress from 'nprogress';
+import { createRouter, createWebHashHistory } from 'vue-router';
+
 /**
  * 路由定义
  * transitionName: 路由切换过渡动画名称
  */
-import { createRouter, createWebHashHistory } from 'vue-router';
-import { ElMessage } from 'element-plus';
-import NProgress from 'nprogress';
-import { isLogin } from '@/utils/auth.js';
-
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -71,12 +71,14 @@ router.beforeEach((to, from, next) => {
     // 如果有token 则直接放行
     if (isLogin()) {
       next();
-    } else {
+    }
+    else {
       // 否则去登录页
       ElMessage.error('请先登录！');
       next('/login');
     }
-  } else {
+  }
+  else {
     // 不需要登录则直接放行
     next();
   }

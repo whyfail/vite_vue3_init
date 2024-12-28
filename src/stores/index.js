@@ -32,5 +32,5 @@ pinia.use(({ store }) => {
   });
 });
 
-export { useUserStore, useCommonStore };
+export { useCommonStore, useUserStore };
 export default pinia;

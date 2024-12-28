@@ -6,31 +6,29 @@ import http, { BASE_NAME } from './index.js';
 /**
  * 登录
  */
-export const userLoginApi = async (value) => {
+export async function userLoginApi(value) {
   try {
     const data = await http.post(`${BASE_NAME}/login`, value);
 
     return data;
-  } catch (error) {
-    console.error(error);
-
-    return;
   }
-};
+  catch (error) {
+    console.error(error);
+  }
+}
 
 /**
  * !测试使用，新建项目后删除掉
  */
 export const csGetApiKey = `${BASE_NAME}/rand.qinghua?format=json`;
 
-export const csGetApi = async (value) => {
+export async function csGetApi(value) {
   try {
     const data = await http.get(csGetApiKey, { params: value });
 
     return data;
-  } catch (error) {
-    console.error(error);
-
-    return;
   }
-};
+  catch (error) {
+    console.error(error);
+  }
+}
