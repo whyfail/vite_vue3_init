@@ -11,8 +11,7 @@ export async function userLoginApi(value) {
     const data = await http.post(`${BASE_NAME}/login`, value);
 
     return data;
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
   }
 }
@@ -27,8 +26,7 @@ export async function csGetApi(value) {
     const data = await http.get(csGetApiKey, { params: value });
 
     return data;
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
   }
 }

@@ -14,8 +14,7 @@ export default defineConfig({
             'text-overflow': 'ellipsis',
             'white-space': 'nowrap',
           };
-        }
-        else {
+        } else {
           return {
             'overflow': 'hidden',
             'text-overflow': 'ellipsis',

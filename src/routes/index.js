@@ -71,14 +71,12 @@ router.beforeEach((to, from, next) => {
     // 如果有token 则直接放行
     if (isLogin()) {
       next();
-    }
-    else {
+    } else {
       // 否则去登录页
       ElMessage.error('请先登录！');
       next('/login');
     }
-  }
-  else {
+  } else {
     // 不需要登录则直接放行
     next();
   }

@@ -5,7 +5,7 @@ import LoginForm from './LoginForm.vue';
 
 <template>
   <div
-    class="bg-[url(@/assets/images/login/login-bg-white.png)] h-[100%] w-[100%] bg-no-repeat bg-cover relative flex flex-col"
+    class="relative h-[100%] w-[100%] flex flex-col bg-[url(@/assets/images/login/login-bg-white.png)] bg-cover bg-no-repeat"
   >
     <header class="h-[56px] flex items-center justify-between px-[24px] backdrop-filter">
       <img :src="LogoFullIcon" alt="">

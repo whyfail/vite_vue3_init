@@ -38,26 +38,22 @@ export function TimeFormatPast(date, type = 'default', zeroFillFlag = true) {
   if (time < 10000) {
     // 10秒内
     return '刚刚';
-  }
-  else if (time < 60000) {
+  } else if (time < 60000) {
     // 超过10秒少于1分钟内
     countTime = Math.floor(time / 1000);
 
     return `${countTime}秒前`;
-  }
-  else if (time < 3600000) {
+  } else if (time < 3600000) {
     // 超过1分钟少于1小时
     countTime = Math.floor(time / 60000);
 
     return `${countTime}分钟前`;
-  }
-  else if (time < 86400000) {
+  } else if (time < 86400000) {
     // 超过1小时少于24小时
     countTime = Math.floor(time / 3600000);
 
     return `${countTime}小时前`;
-  }
-  else if (time >= 86400000 && type === 'default') {
+  } else if (time >= 86400000 && type === 'default') {
     // 超过二十四小时（一天）且格式参数为默认"default"
     countTime = Math.floor(time / 86400000);
 
@@ -72,8 +68,7 @@ export function TimeFormatPast(date, type = 'default', zeroFillFlag = true) {
     }
 
     return `${countTime}天前`;
-  }
-  else {
+  } else {
     // 一天（24小时）以上且格式不为"default"则按传入格式参数显示不同格式
     // 数字补零
     const Y = new Date(date).getFullYear();
