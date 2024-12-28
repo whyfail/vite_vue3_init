@@ -2,7 +2,7 @@
  * 项目打包
  */
 import { execSync } from 'node:child_process';
-import { process } from 'node:process';
+import process from 'node:process';
 
 function isGitInitialized() {
   try {
