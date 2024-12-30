@@ -7,12 +7,12 @@ export default antfu(
     plugins: [stylistic],
     vue: true,
     unocss: true,
+    typescript: false,
   },
   {
     rules: {
       '@stylistic/semi': [2, 'always'],
       '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-      'no-unused-vars': 'error',
       'padding-line-between-statements': [
         'error',
         { blankLine: 'always', prev: '*', next: 'return' },
@@ -47,16 +47,6 @@ export default antfu(
           ignores: ['index', 'Router404'],
         },
       ],
-      'vue/component-name-in-template-casing': [
-        'error',
-        'PascalCase',
-        {
-          registeredComponentsOnly: false,
-          ignores: [],
-        },
-      ],
-      'vue/no-unused-components': 'error',
-      'vue/no-undef-components': 'error',
     },
   },
 );

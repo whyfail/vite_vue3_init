@@ -80,6 +80,12 @@ git config --global core.autocrlf input
 git config --global core.ignorecase false
 ```
 
+#### 检查所有Eslint规则
+
+```
+npx @eslint/config-inspector
+```
+
 #### 项目功能简介
 
 - `element-plus` element-plus UI 库，修改其主题样式可以在`src/assets/css/element-plus.scss`中进行自定义主题
