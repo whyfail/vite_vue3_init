@@ -15,6 +15,7 @@ import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
 import eslint from 'vite-plugin-eslint';
 import vitePluginNoBug from 'vite-plugin-no-bug';
+import vueDevTools from 'vite-plugin-vue-devtools';
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
@@ -40,6 +41,7 @@ export default defineConfig(() => {
       AutoDecimal(),
       vue(),
       vueJsx(),
+      vueDevTools(),
       viteCompression({
         algorithm: 'gzip',
         verbose: false,
