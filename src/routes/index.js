@@ -61,6 +61,9 @@ const router = createRouter({
       component: () => import('@/components/Router404.vue'),
     },
   ],
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 router.beforeEach((to, from, next) => {
