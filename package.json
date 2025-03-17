@@ -42,6 +42,7 @@
     "autoprefixer": "^10.4.16",
     "code-inspector-plugin": "^0.14.2",
     "eslint": "^9.21.0",
+    "eslint-plugin-format": "^1.0.1",
     "lint-staged": "^14.0.1",
     "postcss-pxtorem": "^6.0.0",
     "rollup-plugin-visualizer": "^5.12.0",
