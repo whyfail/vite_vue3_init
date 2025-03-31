@@ -40,7 +40,7 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "autoprefixer": "^10.4.16",
-    "code-inspector-plugin": "^0.14.2",
+    "code-inspector-plugin": "^0.20.7",
     "eslint": "^9.21.0",
     "eslint-plugin-format": "^1.0.1",
     "lint-staged": "^14.0.1",
