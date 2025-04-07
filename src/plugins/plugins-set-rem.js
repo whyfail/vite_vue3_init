@@ -30,10 +30,12 @@ function setRem() {
   document.documentElement.style.fontSize = `${rem}px`;
 }
 
-// 初始化
-setRem();
-
-// 改变窗口大小时重新设置 rem
-window.onresize = function () {
+if (import.meta.env.VITE_USE_REM === 'true') {
+  // 初始化
   setRem();
-};
+
+  // 改变窗口大小时重新设置 rem
+  window.onresize = function () {
+    setRem();
+  };
+}

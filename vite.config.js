@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import process from 'node:process';
 import { webUpdateNotice } from '@plugin-web-update-notification/vite';
 import legacy from '@vitejs/plugin-legacy';
 import vue from '@vitejs/plugin-vue';
@@ -11,13 +12,16 @@ import UnoCSS from 'unocss/vite';
 import AutoDecimal from 'unplugin-auto-decimal/vite';
 import ElementPlus from 'unplugin-element-plus/vite';
 import Printer from 'unplugin-printer/vite';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import viteCompression from 'vite-plugin-compression';
 import vitePluginNoBug from 'vite-plugin-no-bug';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
 // https://vitejs.dev/config/
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  // 根据当前工作目录中的 `mode` 加载 .env 文件
+  const env = loadEnv(mode, process.cwd(), '');
+
   // 这里只加入了element的有其他的也加在这里
   const optimizeDepsElementPlusIncludes = ['element-plus/es'];
 
@@ -84,7 +88,7 @@ export default defineConfig(() => {
     css: {
       postcss: {
         plugins: [
-          postCssPxToRem({
+          env.VITE_USE_REM === 'true' && postCssPxToRem({
             rootValue: 16, // 1rem的大小
             propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
             selectorBlackList: ['#app'],
@@ -93,7 +97,7 @@ export default defineConfig(() => {
             grid: true,
             overrideBrowserslist: ['> 1%'],
           }),
-        ],
+        ].filter(Boolean),
       },
       preprocessorOptions: {
         scss: {
