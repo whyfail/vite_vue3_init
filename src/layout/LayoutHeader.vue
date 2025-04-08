@@ -25,7 +25,7 @@ useWinResize(() => {
 
 <template>
   <header
-    class="relative z-99 h-[56px] w-[100%] flex items-center justify-between px-[20px] shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white]"
+    class="px-[20px] flex h-[56px] w-[100%] shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white] items-center justify-between relative z-99"
   >
     <div class="flex items-center">
       <ElImage :src="commonStore.logoNoFull ? AssetLogo : AssetLogoFull" class="mr-[20px] h-[34px]" />
