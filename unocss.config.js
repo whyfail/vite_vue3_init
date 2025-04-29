@@ -1,9 +1,8 @@
 // uno.config.js
-import presetWind4 from '@unocss/preset-wind4';
-import { defineConfig, presetAttributify } from 'unocss';
+import { defineConfig, presetAttributify, presetMini, presetWind3 } from 'unocss';
 
 export default defineConfig({
-  presets: [presetWind4(), presetAttributify()],
+  presets: [presetMini(), presetWind3(), presetAttributify()],
   rules: [
     // 省略样式规则
     [
