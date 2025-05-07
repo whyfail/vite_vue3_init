@@ -3,8 +3,6 @@
  */
 import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
-import useCommonStore from './storeCommon.js';
-import useUserStore from './storeUser.js';
 
 // 创建全局状态
 export const pinia = createPinia();
@@ -32,5 +30,4 @@ pinia.use(({ store }) => {
   });
 });
 
-export { useCommonStore, useUserStore };
 export default pinia;

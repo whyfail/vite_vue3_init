@@ -1,7 +1,7 @@
 <script setup>
 import AssetLogoFull from '@/assets/images/login/assets-logo-full.svg';
 import AssetLogo from '@/assets/images/login/assets-t-logo.svg';
-import { useCommonStore } from '@/stores/index.js';
+import useCommonStore from '@/stores/storeCommon.js';
 import { Operation, SwitchButton } from '@element-plus/icons-vue';
 import { ElAvatar, ElDropdown, ElDropdownItem, ElDropdownMenu, ElIcon, ElImage, ElSpace } from 'element-plus';
 import { useWinResize } from 'vue-hooks-plus';
@@ -25,7 +25,7 @@ useWinResize(() => {
 
 <template>
   <header
-    class="px-[20px] flex h-[56px] w-[100%] shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white] items-center justify-between relative z-99"
+    class="relative z-99 h-[56px] w-[100%] flex items-center justify-between px-[20px] shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white]"
   >
     <div class="flex items-center">
       <ElImage :src="commonStore.logoNoFull ? AssetLogo : AssetLogoFull" class="mr-[20px] h-[34px]" />

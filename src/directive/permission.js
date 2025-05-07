@@ -1,7 +1,7 @@
 /**
  * 权限控制指令
  */
-import { useUserStore } from '@/stores/index.js';
+import useUserStore from '@/stores/storeUser.js';
 
 function checkPermission(el, binding) {
   const { value } = binding;

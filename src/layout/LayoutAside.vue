@@ -1,5 +1,5 @@
 <script setup>
-import { useCommonStore } from '@/stores/index.js';
+import useCommonStore from '@/stores/storeCommon.js';
 import { Document, HomeFilled } from '@element-plus/icons-vue';
 import { ElIcon, ElMenu, ElMenuItem } from 'element-plus';
 import { ref } from 'vue';
