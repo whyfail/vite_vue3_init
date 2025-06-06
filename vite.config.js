@@ -41,7 +41,9 @@ export default defineConfig(({ mode }) => {
   return {
     base: './',
     plugins: [
-      AutoDecimal(),
+      AutoDecimal({
+        dts: false,
+      }),
       vue(),
       vueJsx(),
       vueDevTools(),
