@@ -1,11 +1,11 @@
 <script setup>
-import AssetLogoFull from '@/assets/images/login/assets-logo-full.svg';
-import AssetLogo from '@/assets/images/login/assets-t-logo.svg';
-import useCommonStore from '@/stores/storeCommon.js';
 import { Operation, SwitchButton } from '@element-plus/icons-vue';
 import { ElAvatar, ElDropdown, ElDropdownItem, ElDropdownMenu, ElIcon, ElImage, ElSpace } from 'element-plus';
 import { useWinResize } from 'vue-hooks-plus';
 import { useRouter } from 'vue-router';
+import AssetLogoFull from '@/assets/images/login/assets-logo-full.svg';
+import AssetLogo from '@/assets/images/login/assets-t-logo.svg';
+import useCommonStore from '@/stores/storeCommon.js';
 
 const router = useRouter();
 const commonStore = useCommonStore();

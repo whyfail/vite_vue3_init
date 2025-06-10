@@ -1,10 +1,10 @@
 <script setup>
-import { csGetApi, csGetApiKey } from '@/apis/api-user.js';
-import { clearToken } from '@/utils/auth.js';
 import { ElButton } from 'element-plus';
 import { ref } from 'vue';
 import { useInterval, useRequest } from 'vue-hooks-plus';
 import { useRouter } from 'vue-router';
+import { csGetApi, csGetApiKey } from '@/apis/api-user.js';
+import { clearToken } from '@/utils/auth.js';
 
 const router = useRouter();
 

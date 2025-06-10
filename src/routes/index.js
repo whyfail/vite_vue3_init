@@ -1,7 +1,7 @@
-import { isLogin } from '@/utils/auth.js';
 import { ElMessage } from 'element-plus';
 import NProgress from 'nprogress';
 import { createRouter, createWebHashHistory } from 'vue-router';
+import { isLogin } from '@/utils/auth.js';
 
 /**
  * 路由定义

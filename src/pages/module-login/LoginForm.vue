@@ -1,9 +1,9 @@
 <script setup>
-import { setToken } from '@/utils/auth.js';
 import { Lock, User } from '@element-plus/icons-vue';
 import { ElButton, ElCheckbox, ElForm, ElFormItem, ElInput, ElMessage } from 'element-plus';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { setToken } from '@/utils/auth.js';
 
 const router = useRouter();
 

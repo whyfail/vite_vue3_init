@@ -1,9 +1,9 @@
 <script setup>
-import useCommonStore from '@/stores/storeCommon.js';
 import { Document, HomeFilled } from '@element-plus/icons-vue';
 import { ElIcon, ElMenu, ElMenuItem } from 'element-plus';
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
+import useCommonStore from '@/stores/storeCommon.js';
 
 const route = useRoute();
 
