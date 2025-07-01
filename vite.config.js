@@ -124,7 +124,7 @@ export default defineConfig(({ mode }) => {
       include: optimizeDepsElementPlusIncludes,
     },
     esbuild: {
-      drop: ['debugger', 'console'],
+      drop: mode === 'development' ? [] : ['console', 'debugger'], // 生产环境 删除 所有的console 和 debugger
     },
     build: {
       chunkSizeWarningLimit: 1500,
