@@ -5,8 +5,11 @@ import { useInterval, useRequest } from 'vue-hooks-plus';
 import { useRouter } from 'vue-router';
 import { csGetApi, csGetApiKey } from '@/apis/api-user.js';
 import { clearToken } from '@/utils/auth.js';
+import { snapDomToPng } from '@/utils/dom';
 
 const router = useRouter();
+const divRef = ref(null);
+const imgUrl = ref('');
 
 const postData = ref('还未请求数据');
 
@@ -39,7 +42,7 @@ function goLogin() {
 </script>
 
 <template>
-  <div class="w-[100%] flex flex-col flex-items-center p-t-[80px]">
+  <div ref="divRef" class="w-[100%] flex flex-col flex-items-center p-t-[80px]">
     <div>{{ valueRef }}</div>
     <br>
     <div>{{ loading ? '加载中' : apiData?.content }}</div>
@@ -54,7 +57,19 @@ function goLogin() {
       登录页
     </ElButton>
     <br>
+    <ElButton
+      type="primary"
+      @click=" async () => {
+        imgUrl = await snapDomToPng(divRef)
+      }"
+    >
+      一键截图
+    </ElButton>
+    <br>
+
     <div>AutoDecimal插件计算基本运算自动转换：{{ 0.1 + 0.2 }}</div>
+    <br>
+    <img v-if="imgUrl" :src="imgUrl" width="600">
     <br>
     <img v-lazy="'https://w.wallhaven.cc/full/jx/wallhaven-jxl31y.png'" width="600">
   </div>
