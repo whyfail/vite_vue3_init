@@ -9,7 +9,6 @@ import { codeInspectorPlugin } from 'code-inspector-plugin';
 import postCssPxToRem from 'postcss-pxtorem';
 import { visualizer } from 'rollup-plugin-visualizer';
 import UnoCSS from 'unocss/vite';
-import AutoDecimal from 'unplugin-auto-decimal/vite';
 import ElementPlus from 'unplugin-element-plus/vite';
 import Printer from 'unplugin-printer/vite';
 import { defineConfig, loadEnv } from 'vite';
@@ -41,7 +40,6 @@ export default defineConfig(({ mode }) => {
   return {
     base: './',
     plugins: [
-      AutoDecimal({ dts: false }),
       vue(),
       vueJsx(),
       vueDevTools(),

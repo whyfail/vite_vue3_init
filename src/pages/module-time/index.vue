@@ -67,7 +67,6 @@ function goLogin() {
     </ElButton>
     <br>
 
-    <div>AutoDecimal插件计算基本运算自动转换：{{ 0.1 + 0.2 }}</div>
     <br>
     <img v-if="imgUrl" :src="imgUrl" width="600">
     <br>
