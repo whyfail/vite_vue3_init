@@ -119,20 +119,18 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       include: optimizeDepsElementPlusIncludes,
     },
-    esbuild: {
-      drop: mode === 'development' ? [] : ['console', 'debugger'], // 生产环境 删除 所有的console 和 debugger
-    },
     build: {
       chunkSizeWarningLimit: 1500,
       reportCompressedSize: false,
       rollupOptions: {
         output: {
-          experimentalMinChunkSize: 1000,
-          manualChunks: {
-            vue: ['vue'],
-            vueHooksPlus: ['vue-hooks-plus'],
-            lodashEs: ['lodash-es'],
-            elementPlus: ['element-plus'],
+          advancedChunks: {
+            groups: [
+              { name: 'vue', test: /\/vue/ },
+              { name: 'vueHooksPlus', test: /\/vue-hooks-plus/ },
+              { name: 'lodashEs', test: /\/lodash-es/ },
+              { name: 'elementPlus', test: /\/element-plus/ },
+            ],
           },
         },
       },

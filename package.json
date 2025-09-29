@@ -51,10 +51,13 @@
     "unocss": "^66.5.2",
     "unplugin-element-plus": "^0.10.0",
     "unplugin-printer": "^0.0.2",
-    "vite": "^7.1.7",
+    "vite": "npm:rolldown-vite@7.1.12",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-no-bug": "^1.0.5",
     "vite-plugin-vue-devtools": "^8.0.2"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.1.12"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
