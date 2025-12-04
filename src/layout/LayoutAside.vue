@@ -14,8 +14,7 @@ const commonStore = useCommonStore();
 
 <template>
   <ElMenu
-    class="h-full w-[300px]"
-    :style="{ minWidth: '52px' }"
+    class="el-menu-vertical-demo"
     :collapse="commonStore.logoNoFull"
     router
     :default-active="defaultActive"
@@ -40,3 +39,10 @@ const commonStore = useCommonStore();
     </ElMenuItem>
   </ElMenu>
 </template>
+
+<style scoped lang="scss">
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  height: 100%;
+}
+</style>

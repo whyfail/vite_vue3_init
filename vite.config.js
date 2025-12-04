@@ -1,4 +1,3 @@
-import fs from 'node:fs';
 import process from 'node:process';
 import { webUpdateNotice } from '@plugin-web-update-notification/vite';
 import legacy from '@vitejs/plugin-legacy';
@@ -20,22 +19,6 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 export default defineConfig(({ mode }) => {
   // 根据当前工作目录中的 `mode` 加载 .env 文件
   const env = loadEnv(mode, process.cwd(), '');
-
-  // 这里只加入了element的有其他的也加在这里
-  const optimizeDepsElementPlusIncludes = ['element-plus/es'];
-
-  //  预加载element样式 有其他组件也是如此设置即可
-  fs.readdirSync('node_modules/element-plus/es/components').forEach((dirname) => {
-    fs.access(
-      // 其他框架这个路径根据控制台输出进行修改 有的项目时加载的是 css.mjs 有些是 index.mjs 这个路径vite控制台能够看出来
-      `node_modules/element-plus/es/components/${dirname}/style/index.mjs`,
-      (err) => {
-        if (!err) {
-          optimizeDepsElementPlusIncludes.push(`element-plus/es/components/${dirname}/style/index`);
-        }
-      },
-    );
-  });
 
   return {
     base: './',
@@ -116,21 +99,25 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
-    optimizeDeps: {
-      include: optimizeDepsElementPlusIncludes,
-    },
     build: {
+      reportCompressedSize: true,
       chunkSizeWarningLimit: 1500,
-      reportCompressedSize: false,
-      rollupOptions: {
+      rolldownOptions: {
         output: {
           advancedChunks: {
             groups: [
-              { name: 'vue', test: /\/vue/ },
-              { name: 'vueHooksPlus', test: /\/vue-hooks-plus/ },
-              { name: 'lodashEs', test: /\/lodash-es/ },
-              { name: 'elementPlus', test: /\/element-plus/ },
+              { name: 'vue', test: /node_modules\/vue/ },
+              { name: 'vueHooksPlus', test: /node_modules\/vue-hooks-plus/ },
+              { name: 'lodashEs', test: /node_modules\/lodash-es/ },
+              { name: 'elementPlus', test: /node_modules\/element-plus/ },
+              { name: 'snapdom', test: /node_modules\/@zumer\/snapdom/ },
             ],
+          },
+          minify: {
+            compress: {
+              dropConsole: true,
+              dropDebugger: true,
+            },
           },
         },
       },
