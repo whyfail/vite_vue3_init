@@ -12,7 +12,6 @@ import 'animate.css';
 import 'nprogress/nprogress.css';
 import 'virtual:uno.css';
 import './assets/css/index.scss';
-import './plugins/plugins-set-rem.js';
 
 const app = createApp(App);
 

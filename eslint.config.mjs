@@ -32,6 +32,7 @@ export default antfu(
       'antfu/if-newline': 'off',
       '@stylistic/semi': [2, 'always'],
       '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+      'no-use-before-define': 'off',
       'padding-line-between-statements': [
         'error',
         { blankLine: 'always', prev: '*', next: 'return' },

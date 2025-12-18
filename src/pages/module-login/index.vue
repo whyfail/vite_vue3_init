@@ -1,30 +1,72 @@
 <script setup>
-import LogoFullIcon from '@/assets/images/login/assets-logo-full.svg';
-import LoginForm from './LoginForm.vue';
+import { Lock, User } from '@element-plus/icons-vue';
+import { ElButton, ElCheckbox, ElForm, ElFormItem, ElInput, ElMessage } from 'element-plus';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { setToken } from '@/utils/auth.js';
+import LoginPrism from './LoginPrism.vue';
+
+const router = useRouter();
+
+const formRef = ref();
+const formData = ref({
+  account: 'admin',
+  password: 'admin',
+  checked: false,
+});
+const formRules = ref({
+  account: [{ required: true, message: '账号必填', trigger: 'change' }],
+  password: [{ required: true, message: '密码必填', trigger: 'change' }],
+});
+
+async function goHome() {
+  const valid = await formRef.value.validate();
+
+  if (!valid) return;
+  ElMessage.success('登录成功');
+  router.replace('/home');
+  setToken('123', formData.value.checked);
+}
 </script>
 
 <template>
   <div
-    class="relative h-[100%] w-[100%] flex flex-col bg-[url(@/assets/images/login/login-bg-white.png)] bg-cover bg-no-repeat"
+    class="relative h-full w-full"
   >
-    <header class="h-[56px] flex items-center justify-between px-[24px] backdrop-filter">
-      <img :src="LogoFullIcon" alt="">
-    </header>
+    <LoginPrism />
+    <div className="absolute left-1/2 top-1/2 w-[520px] rd-[32px] bg-[#ecf0f350] p-8 shadow-[1px_1px_3px_#cbced1,-1px_-1px_3px_white] -translate-x-1/2 -translate-y-1/2">
+      <h2 className="text-center text-32px text-[#ffffff] font-bold text-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+        登录
+      </h2>
+      <ElForm ref="formRef" :model="formData" :rules="formRules">
+        <ElFormItem prop="account">
+          <ElInput v-model="formData.account" size="large" placeholder="请输入账号" :prefix-icon="User" />
+        </ElFormItem>
 
-    <div class="absolute left-[5%] top-[22%] min-h-[500px]">
-      <div>
-        <h1 class="mt-0">
-          登录
-        </h1>
-        <h1>TDesign Starter</h1>
-        <div class="mt-[24px]" />
-      </div>
+        <ElFormItem prop="password">
+          <ElInput
+            v-model="formData.password"
+            size="large"
+            type="password"
+            clearable
+            placeholder="请输入登录密码"
+            :prefix-icon="Lock"
+            show-password
+          />
+        </ElFormItem>
 
-      <LoginForm />
+        <ElFormItem>
+          <ElButton class="w-[100%]" type="primary" size="large" @click="goHome">
+            登录
+          </ElButton>
+        </ElFormItem>
+
+        <div class="mb-[16px] flex items-center justify-end">
+          <ElCheckbox v-model="formData.checked">
+            记住账号
+          </ElCheckbox>
+        </div>
+      </ElForm>
     </div>
-
-    <footer class="absolute bottom-[64px] left-[5%]">
-      Copyright @ 2021-2023 Tencent. All Rights Reserved
-    </footer>
   </div>
 </template>

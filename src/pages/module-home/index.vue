@@ -1,14 +1,26 @@
 <script setup>
+import autofit from 'autofit.js';
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import useUserStore from '@/stores/storeUser.js';
 
 const router = useRouter();
 
 const userStore = useUserStore();
+
+onMounted(() => {
+  // 适配(建议只给大屏开启)
+  autofit.init({
+    dh: 1080,
+    dw: 1920,
+    el: '#echarts',
+    resize: true,
+  });
+});
 </script>
 
 <template>
-  <div class="demo_root">
+  <div id="echarts" class="demo_root">
     <div class="demo_content">
       <div class="container">
         <div class="brand-logo">
