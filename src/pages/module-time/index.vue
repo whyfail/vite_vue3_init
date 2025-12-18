@@ -42,7 +42,7 @@ function goLogin() {
 </script>
 
 <template>
-  <div ref="divRef" class="w-[100%] flex flex-col flex-items-center p-t-[80px]">
+  <div ref="divRef" class="w-[100%] flex flex-col flex-items-center overflow-auto pt-[80px]">
     <div>{{ valueRef }}</div>
     <br>
     <div>{{ loading ? '加载中' : apiData?.content }}</div>
