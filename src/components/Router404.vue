@@ -1,16 +1,3 @@
 <template>
-  <div class="root" />
+  <div class="h-screen flex items-center justify-center bg-[60%_60%] bg-[length:60%_60%] bg-[url(@/assets/images/router/router_404.svg)] bg-center bg-no-repeat" />
 </template>
-
-<style lang="scss" scoped>
-.root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background-image: url('@/assets/images/router/router_404.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 60% 60%;
-}
-</style>
