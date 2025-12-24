@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { ref } from 'vue';
 
 const useUserStore = defineStore('storeUser', () => {
   const number = ref(0);

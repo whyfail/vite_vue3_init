@@ -4,12 +4,12 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import autoprefixer from 'autoprefixer';
 import { codeInspectorPlugin } from 'code-inspector-plugin';
-import { visualizer } from 'rollup-plugin-visualizer';
 import UnoCSS from 'unocss/vite';
 import ElementPlus from 'unplugin-element-plus/vite';
 import Printer from 'unplugin-printer/vite';
 import { defineConfig } from 'vite';
-import viteCompression from 'vite-plugin-compression';
+import { analyzer, unstableRolldownAdapter } from 'vite-bundle-analyzer';
+import { compression } from 'vite-plugin-compression2';
 import vitePluginNoBug from 'vite-plugin-no-bug';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
@@ -21,10 +21,11 @@ export default defineConfig(() => {
       vue(),
       vueJsx(),
       vueDevTools(),
-      viteCompression({
-        algorithm: 'gzip',
-        verbose: false,
-        filter: /\.(js)$/,
+      unstableRolldownAdapter(analyzer({
+        openAnalyzer: true, // 是否构建完后打开分析器
+      })),
+      compression({
+        algorithms: ['gzip', 'brotliCompress'], // 压缩算法 nginx需增相应配置
       }),
       legacy({
         targets: ['defaults', 'not IE 11'],
@@ -36,7 +37,6 @@ export default defineConfig(() => {
       ElementPlus({
         useSource: true,
       }),
-      visualizer({ gzipSize: true }),
       Printer({
         info: [
           ({ lightCyan, green, bold }) => {
