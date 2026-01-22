@@ -87,9 +87,7 @@ router.beforeEach((to, from, next) => {
 
 // 修改标题的工作可以放在全局后置守卫
 router.afterEach((to) => {
-  setTimeout(() => {
-    NProgress.done();
-  }, 700);
+  NProgress.done();
 
   if (to.meta.title) {
     document.title = `${import.meta.env.VITE_APP_NAME} - ${to.meta.title}`;
