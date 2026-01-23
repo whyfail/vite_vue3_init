@@ -94,7 +94,7 @@ export default defineConfig(() => {
       chunkSizeWarningLimit: 1500,
       rolldownOptions: {
         output: {
-          advancedChunks: {
+          codeSplitting: {
             groups: [
               { name: 'vue', test: /node_modules\/vue/ },
               { name: 'vueHooksPlus', test: /node_modules\/vue-hooks-plus/ },
