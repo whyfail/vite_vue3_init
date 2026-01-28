@@ -48,7 +48,7 @@ const router = createRouter({
         needLogin: false,
         transitionName: 'router',
       },
-      component: () => import('../pages/module-login/index.vue'),
+      component: () => import('@/pages/module-login/index.vue'),
     },
     {
       path: '/:pathMatch(.*)',

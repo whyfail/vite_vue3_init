@@ -22,7 +22,8 @@ export default defineConfig(() => {
       vueJsx(),
       vueDevTools(),
       unstableRolldownAdapter(analyzer({
-        openAnalyzer: true, // 是否构建完后打开分析器
+        openAnalyzer: false, // 避免每次构建自动打开
+        analyzerMode: 'server', // 按需开启
       })),
       compression({
         algorithms: ['gzip', 'brotliCompress'], // 压缩算法 nginx需增相应配置
@@ -96,11 +97,18 @@ export default defineConfig(() => {
         output: {
           codeSplitting: {
             groups: [
-              { name: 'vue', test: /node_modules\/vue/ },
-              { name: 'vueHooksPlus', test: /node_modules\/vue-hooks-plus/ },
-              { name: 'lodashEs', test: /node_modules\/lodash-es/ },
-              { name: 'elementPlus', test: /node_modules\/element-plus/ },
-              { name: 'snapdom', test: /node_modules\/@zumer\/snapdom/ },
+              // Vue 核心库
+              { name: 'vue-vendor', test: /node_modules\/(?:vue-router|pinia)/ },
+              // Element Plus 主库
+              { name: 'element-plus', test: /node_modules\/element-plus/ },
+              // Element Plus 图标
+              { name: 'element-icons', test: /node_modules\/@element-plus\/icons-vue/ },
+              // 工具库集合
+              { name: 'utils', test: /node_modules\/(lodash-es|dayjs|axios)/ },
+              // 动画和特效库
+              { name: 'animations', test: /node_modules\/(animate\.css|@zumer\/snapdom)/ },
+              // Vue Hooks 增强
+              { name: 'vue-hooks-plus', test: /node_modules\/vue-hooks-plus/ },
             ],
           },
           minify: {
