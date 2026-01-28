@@ -2,6 +2,10 @@
 
 一个现代化、高性能、易扩展的 Vue 3 项目初始化模板，集成了企业级开发所需的各种工具和最佳实践。
 
+## 文档
+
+[https://whyfail.github.io/cwa-docs/](https://whyfail.github.io/cwa-docs/)
+
 ## ✨ 核心特性
 
 - **现代化框架**：Vue 3 + Vite + Element Plus

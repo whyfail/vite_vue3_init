@@ -9,25 +9,25 @@ const commitRE = /^(?:revert: )?(?:feat|fix|docs|style|refactor|perf|test|build|
 
 if (!commitRE.test(msg)) {
   console.error(`
-  ❌ Invalid commit message format.
+  ❌ 提交信息格式不正确
 
-  Proper commit message format is required for automated changelog generation.
+  请使用规范的提交信息格式
 
-  Examples:
+  示例：
 
-    feat: add new feature
-    fix: fix bug in component
-    docs: update README
-    style: format code
-    refactor: restructure auth module
-    perf: improve performance
-    test: add unit tests
-    build: update dependencies
-    ci: configure CI pipeline
-    chore: update config files
-    types: add type definitions
+    feat: 添加新功能
+    fix: 修复组件中的 bug
+    docs: 更新文档
+    style: 代码格式化
+    refactor: 重构认证模块
+    perf: 性能优化
+    test: 添加单元测试
+    build: 更新依赖
+    ci: 配置 CI 流程
+    chore: 更新配置文件
+    types: 添加类型定义
 
-  See https://www.conventionalcommits.org/ for more details.
+  详细规范请参考：https://www.conventionalcommits.org/
   `);
   process.exit(1);
 }
