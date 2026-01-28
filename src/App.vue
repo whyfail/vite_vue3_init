@@ -4,6 +4,7 @@ import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
 import { useRequestProvider } from 'vue-hooks-plus';
 import { RouterView } from 'vue-router';
+import ErrorBoundary from '@/components/ErrorBoundary.vue';
 import RouterLoading from '@/components/RouterLoading.vue';
 import 'dayjs/locale/zh-cn';
 
@@ -20,17 +21,19 @@ dayjs.locale('zh-cn');
 
 <template>
   <ElConfigProvider :locale="zhCn">
-    <Suspense>
-      <template #default>
-        <RouterView v-slot="{ Component, route }">
-          <Transition :name="route.meta.transitionName" mode="out-in">
-            <Component :is="Component" />
-          </Transition>
-        </RouterView>
-      </template>
-      <template #fallback>
-        <RouterLoading />
-      </template>
-    </Suspense>
+    <ErrorBoundary>
+      <Suspense>
+        <template #default>
+          <RouterView v-slot="{ Component, route }">
+            <Transition :name="route.meta.transitionName" mode="out-in">
+              <Component :is="Component" />
+            </Transition>
+          </RouterView>
+        </template>
+        <template #fallback>
+          <RouterLoading />
+        </template>
+      </Suspense>
+    </ErrorBoundary>
   </ElConfigProvider>
 </template>

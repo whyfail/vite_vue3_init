@@ -7,6 +7,7 @@ import App from './App.vue';
 import directive from './directive/index.js';
 import router from './routes/index.js';
 import { pinia } from './stores/index.js';
+import { performanceMonitor } from './utils/performance.js';
 import 'element-plus/theme-chalk/el-loading.css';
 import 'animate.css';
 import 'nprogress/nprogress.css';
@@ -23,4 +24,13 @@ app.use(VueLazyLoad, {
 });
 app.use(directive);
 app.use(useRequestDevToolsPlugin);
+
+// 初始化性能监控
+performanceMonitor.init();
+
+// 监控长任务（仅在开发环境）
+if (import.meta.env.DEV) {
+  performanceMonitor.observeLongTasks();
+}
+
 app.mount('#app');
