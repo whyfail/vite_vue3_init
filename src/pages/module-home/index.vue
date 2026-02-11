@@ -36,6 +36,14 @@ onMounted(() => {
           <button v-permission="['admin']" font-bold important-text-red @click="router.replace('/time')">
             时间路由
           </button>
+          <button>
+            <div class="flex items-center justify-center">
+              <div class="i-bxl:baidu color-#1c74e8" />
+              <div class="i-bxl:tiktok color-#000000" />
+              <div class="i-bxl:unity color-red" />
+              <div class="i-bxl:postgresql color-#1c74e8" />
+            </div>
+          </button>
         </div>
       </div>
     </div>
