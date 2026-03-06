@@ -25,10 +25,18 @@ export default antfu(
        * By default uses Prettier
        */
       markdown: 'prettier',
+
     },
+    ignores: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/public/**',
+      '**/.trae/**',
+    ],
   },
   {
     rules: {
+      'e18e/prefer-static-regex': 'off',
       'antfu/if-newline': 'off',
       '@stylistic/semi': [2, 'always'],
       '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
@@ -60,12 +68,7 @@ export default antfu(
           allow: ['warn', 'error', 'info', 'debug', 'groupCollapsed', 'groupEnd'],
         },
       ],
-      'vue/multi-word-component-names': [
-        'error',
-        {
-          ignores: ['index', 'Router404'],
-        },
-      ],
     },
   },
+
 );
