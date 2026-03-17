@@ -1,4 +1,6 @@
 import { webUpdateNotice } from '@plugin-web-update-notification/vite';
+import { DevTools } from '@vitejs/devtools';
+import { DevToolsSelfInspect } from '@vitejs/devtools-self-inspect';
 import legacy from '@vitejs/plugin-legacy';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -8,7 +10,6 @@ import UnoCSS from 'unocss/vite';
 import ElementPlus from 'unplugin-element-plus/vite';
 import Printer from 'unplugin-printer/vite';
 import { defineConfig } from 'vite';
-import { analyzer, unstableRolldownAdapter } from 'vite-bundle-analyzer';
 import { compression } from 'vite-plugin-compression2';
 import vitePluginNoBug from 'vite-plugin-no-bug';
 import vueDevTools from 'vite-plugin-vue-devtools';
@@ -18,13 +19,11 @@ export default defineConfig(() => {
   return {
     base: './',
     plugins: [
+      DevTools(),
+      DevToolsSelfInspect(),
       vue(),
       vueJsx(),
       vueDevTools(),
-      unstableRolldownAdapter(analyzer({
-        openAnalyzer: false, // 避免每次构建自动打开
-        analyzerMode: 'server', // 按需开启
-      })),
       compression({
         algorithms: ['gzip', 'brotliCompress'], // 压缩算法 nginx需增相应配置
       }),

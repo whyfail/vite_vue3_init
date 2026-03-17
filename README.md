@@ -42,18 +42,21 @@
 ### 环境要求
 
 - Node.js >= 20.0.0
-- npm >= 10.0.0
+
+### 包管理器
+
+- 使用 pnpm@10.32.1 作为包管理器
 
 ### 安装依赖
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 启动开发服务
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 服务将在 `http://localhost:5173` 启动，支持热更新。
@@ -61,7 +64,7 @@ npm run dev
 ### 构建生产版本
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 构建产物将输出到 `dist` 目录，支持 Gzip 和 Brotli 双压缩。
@@ -69,13 +72,13 @@ npm run build
 ### 预览构建结果
 
 ```bash
-npm run preview
+pnpm run preview
 ```
 
 ### 代码检查
 
 ```bash
-npm run lint
+pnpm run lint
 ```
 
 ## 📁 项目结构
