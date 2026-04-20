@@ -1,9 +1,10 @@
 ### 核心框架
 
-- Vue v3.5.27
-- Vue Router v5.0.2
+- Vue v3.5.30
+- Vue Router v5.0.3
 - Pinia v3.0.4
-- Element Plus v2.13.2
+- Element Plus v2.9.6
+- Axios v1.7.9
 
 ### 遵循规则
 
