@@ -28,7 +28,7 @@
 | **UI 组件库**    | Element Plus   | 2.13.7  |
 | **状态管理**     | Pinia          | 3.0.4   |
 | **路由管理**     | Vue Router     | 5.0.6   |
-| **HTTP 客户端**  | Axios          | 1.15.2  |
+| **HTTP 客户端**  | Axios          | 1.16.0  |
 | **样式方案**     | UnoCSS         | 66.6.8  |
 | **样式预处理器** | Sass           | 1.99.0  |
 | **工具库**       | Lodash-es      | 4.18.1  |
@@ -36,7 +36,7 @@
 | **进度条**       | NProgress      | 0.2.0   |
 | **懒加载**       | Vue3 Lazyload  | 0.4.2   |
 | **钩子库**       | Vue Hooks Plus | 2.4.3   |
-| **Hooks 工具**   | VueUse         | 14.2.1  |
+| **Hooks 工具**   | VueUse         | 14.3.0  |
 
 ## 📦 快速开始
 

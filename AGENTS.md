@@ -4,7 +4,7 @@
 - Vue Router v5.0.6
 - Pinia v3.0.4
 - Element Plus v2.13.7
-- Axios v1.15.2
+- Axios v1.16.0
 
 ### 遵循规则
 
