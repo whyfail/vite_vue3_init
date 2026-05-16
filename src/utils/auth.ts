@@ -3,7 +3,7 @@
  */
 
 /** token 存储key */
-const KEY_TOKEN = 'xxx_web_app_token';
+const KEY_TOKEN = 'xxx_web_app_token' as const;
 
 /**
  * 是否登录
@@ -25,7 +25,7 @@ function getToken() {
  * 设置token
  * @returns {void}
  */
-function setToken(token, needLocal = false) {
+function setToken(token: string, needLocal = false) {
   sessionStorage.setItem(KEY_TOKEN, token);
 
   needLocal && localStorage.setItem(KEY_TOKEN, token);

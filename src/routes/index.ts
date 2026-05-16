@@ -1,7 +1,8 @@
+import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import NProgress from 'nprogress';
 import { createRouter, createWebHashHistory } from 'vue-router';
-import { isLogin } from '@/utils/auth.js';
+import { isLogin } from '@/utils/auth';
 
 /**
  * 路由定义
@@ -66,7 +67,7 @@ const router = createRouter({
   },
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
   NProgress.start();
 
   // 如果需要登录
@@ -86,7 +87,7 @@ router.beforeEach((to, from, next) => {
 });
 
 // 修改标题的工作可以放在全局后置守卫
-router.afterEach((to) => {
+router.afterEach((to: RouteLocationNormalized) => {
   NProgress.done();
 
   if (to.meta.title) {

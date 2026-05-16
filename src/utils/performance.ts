@@ -5,6 +5,8 @@
 
 import { onCLS, onFCP, onINP, onLCP, onTTFB } from 'web-vitals';
 
+type MetricRating = 'good' | 'needs-improvement' | 'poor';
+
 // 性能指标评分阈值
 const PerformanceRating = {
   good: 'good',
@@ -27,7 +29,7 @@ const VITALS_THRESHOLDS = {
  * @param {number} value - 指标值
  * @returns {string} 评分等级
  */
-function getRating(metricName, value) {
+function getRating(metricName: keyof typeof VITALS_THRESHOLDS, value: number) {
   const thresholds = VITALS_THRESHOLDS[metricName];
 
   if (!thresholds) return PerformanceRating.good;
@@ -44,7 +46,7 @@ function getRating(metricName, value) {
  * @param {number} value - 指标值
  * @returns {string} 格式化后的值
  */
-function formatMetric(metricName, value) {
+function formatMetric(metricName: string, value: number) {
   switch (metricName) {
     case 'CLS':
       return value.toFixed(4);
@@ -70,7 +72,7 @@ function formatMetric(metricName, value) {
  * 控制台输出性能指标
  * @param {object} metric - Web Vitals 指标对象
  */
-function logMetric(metric) {
+function logMetric(metric: { name: string, value: number, rating: MetricRating }) {
   const { name, value, rating } = metric;
   const formattedValue = formatMetric(name, value);
 
@@ -93,7 +95,13 @@ function logMetric(metric) {
  * 性能指标上报（可扩展为上报到监控系统）
  * @param {object} metric - Web Vitals 指标对象
  */
-function reportMetric(metric) {
+function reportMetric(metric: {
+  name: string
+  value: number
+  rating: MetricRating
+  delta: number
+  id: string
+}) {
   const { name, value, rating, delta, id } = metric;
 
   // 控制台输出
@@ -231,9 +239,9 @@ export function getPagePerformanceData() {
     // 资源加载时间
     resource: perfData.loadEventStart - perfData.domContentLoadedEventEnd,
     // 首次绘制时间
-    firstPaint: perfData.responseStart - perfData.navigationStart,
+    firstPaint: perfData.responseStart - perfData.startTime,
     // 首次内容绘制时间
-    firstContentfulPaint: perfData.domContentLoadedEventEnd - perfData.navigationStart,
+    firstContentfulPaint: perfData.domContentLoadedEventEnd - perfData.startTime,
   };
 }
 

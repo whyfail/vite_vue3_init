@@ -1,9 +1,12 @@
 /**
  * 权限控制指令
  */
-import useUserStore from '@/stores/storeUser.js';
+import type { DirectiveBinding, ObjectDirective } from 'vue';
+import useUserStore from '@/stores/storeUser';
 
-function checkPermission(el, binding) {
+type PermissionValue = string[];
+
+function checkPermission(el: HTMLElement, binding: DirectiveBinding<PermissionValue>) {
   const { value } = binding;
   const userStore = useUserStore();
   const { role } = userStore;
@@ -30,4 +33,4 @@ export default {
   updated(el, binding) {
     checkPermission(el, binding);
   },
-};
+} satisfies ObjectDirective<HTMLElement, PermissionValue>;

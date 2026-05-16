@@ -2,7 +2,7 @@
 import autofit from 'autofit.js';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import useUserStore from '@/stores/storeUser.js';
+import useUserStore from '@/stores/storeUser';
 
 const router = useRouter();
 
@@ -33,7 +33,7 @@ onMounted(() => {
           <button @click="userStore.subtractNumber">
             -
           </button>
-          <button v-permission="['admin']" font-bold important-text-red @click="router.replace('/time')">
+          <button v-permission="['admin']" class="text-red font-bold" @click="router.replace('/time')">
             时间路由
           </button>
           <button>

@@ -2,8 +2,8 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 const useUserStore = defineStore('storeUser', () => {
-  const number = ref(0);
-  const role = ref('admin');
+  const number = ref<number>(0);
+  const role = ref<'admin' | 'user'>('admin');
 
   /**
    * 增加number

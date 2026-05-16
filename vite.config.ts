@@ -14,6 +14,12 @@ import { compression } from 'vite-plugin-compression2';
 import vitePluginNoBug from 'vite-plugin-no-bug';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
+const logInfo: Parameters<typeof Printer>[0]['info'] = [
+  ({ lightCyan, green, bold }) => {
+    return `  ${green('➜')}  ${bold('官网')}:  ${lightCyan('https://whyfail.github.io/cwa-docs')}`;
+  },
+];
+
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   return {
@@ -38,11 +44,7 @@ export default defineConfig(() => {
         useSource: true,
       }),
       Printer({
-        info: [
-          ({ lightCyan, green, bold }) => {
-            return `  ${green('➜')}  ${bold('官网')}:  ${lightCyan('https://whyfail.github.io/cwa-docs')}`;
-          },
-        ],
+        info: logInfo,
       }),
       codeInspectorPlugin({
         bundler: 'vite',

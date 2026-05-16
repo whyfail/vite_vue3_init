@@ -7,7 +7,7 @@ export default antfu(
     plugins: [stylistic],
     vue: true,
     unocss: true,
-    typescript: false,
+    typescript: true,
     formatters: {
       /**
        * Format CSS, LESS, SCSS files, also the `<style>` blocks in Vue

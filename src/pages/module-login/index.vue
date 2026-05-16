@@ -1,31 +1,37 @@
-<script setup>
+<script setup lang="ts">
 import { Lock, User } from '@element-plus/icons-vue';
 import { ElButton, ElCheckbox, ElForm, ElFormItem, ElInput, ElMessage } from 'element-plus';
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { setToken } from '@/utils/auth.js';
+import { setToken } from '@/utils/auth';
 import LoginPrism from './LoginPrism.vue';
 
 const router = useRouter();
 
-const formRef = ref();
-const formData = ref({
+interface LoginFormData {
+  account: string
+  password: string
+  checked: boolean
+}
+
+const formRef = ref<InstanceType<typeof ElForm> | null>(null);
+const formData = reactive<LoginFormData>({
   account: 'admin',
   password: 'admin',
   checked: false,
 });
-const formRules = ref({
+const formRules = {
   account: [{ required: true, message: '账号必填', trigger: 'change' }],
   password: [{ required: true, message: '密码必填', trigger: 'change' }],
-});
+};
 
 async function goHome() {
-  const valid = await formRef.value.validate();
+  const valid = await formRef.value?.validate();
 
   if (!valid) return;
   ElMessage.success('登录成功');
   router.replace('/home');
-  setToken('123', formData.value.checked);
+  setToken('123', formData.checked);
 }
 </script>
 

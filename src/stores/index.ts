@@ -15,8 +15,10 @@ if (import.meta.env.DEV) {
   pinia.use(({ store }) => {
     store.$subscribe((e) => {
       // 在存储变化的时候执行
+      const events = Array.isArray(e.events) ? e.events[0] : e.events;
+
       console.debug(
-        `%c${new Date().toLocaleString()}：${e.storeId} 中的 ${e.events.key}状态改变：`,
+        `%c${new Date().toLocaleString()}：${e.storeId} 中的 ${events?.key ?? 'unknown'}状态改变：`,
         'background-color: #00BCD4; padding: 6px 12px; border-radius: 2px; font-size: 14px; color: #fff; font-weight: 600;',
       );
       console.debug(`   `, e);
