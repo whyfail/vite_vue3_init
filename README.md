@@ -8,12 +8,12 @@
 
 ## ✨ 核心特性
 
-- **现代化框架**：Vue 3 + Vite + Element Plus
+- **现代化框架**：Vue 3 + TypeScript + Vite + Element Plus
 - **状态管理**：Pinia + 持久化存储
 - **路由管理**：Vue Router 4 + 权限控制
 - **网络请求**：Axios + 统一拦截
 - **样式方案**：UnoCSS + Sass + Element Plus 主题定制
-- **代码质量**：ESLint + Git Hooks + 自动格式化
+- **代码质量**：TypeScript + vue-tsc + ESLint + Git Hooks + 自动格式化
 - **构建优化**：Gzip/Brotli 压缩 + 代码分割 + 资源优化
 - **开发体验**：热更新 + 代码检查器 + Vue DevTools
 - **浏览器兼容**：Legacy 模式支持旧浏览器
@@ -24,6 +24,7 @@
 | 类别             | 技术           | 版本    |
 | ---------------- | -------------- | ------- |
 | **核心框架**     | Vue            | 3.5.34  |
+| **类型系统**     | TypeScript     | 5.9.3   |
 | **构建工具**     | Vite           | 8.0.12  |
 | **UI 组件库**    | Element Plus   | 2.14.0  |
 | **状态管理**     | Pinia          | 3.0.4   |
@@ -82,6 +83,12 @@ pnpm run preview
 pnpm run lint
 ```
 
+### 类型检查
+
+```bash
+pnpm run typecheck
+```
+
 ## 📁 项目结构
 
 ```
@@ -100,9 +107,10 @@ src/
 │   └── module-time/    # 时间模块
 ├── routes/         # 路由配置
 ├── stores/         # 状态管理
+├── types/          # 全局类型补充
 ├── utils/          # 工具函数
 ├── App.vue         # 根组件
-└── main.js         # 入口文件
+└── main.ts         # 入口文件
 ```
 
 ## 🔧 核心功能
@@ -112,6 +120,7 @@ src/
 - 基于路由元信息的权限校验
 - 登录状态管理
 - 权限指令支持
+- 路由 meta 类型声明：`src/vue-router-meta.d.ts`
 
 ### 2. 主题定制
 
@@ -120,7 +129,7 @@ src/
 
 ### 3. 网络请求
 
-- Axios 封装，统一拦截
+- Axios 封装，统一拦截，提供基础响应类型
 - API 模块化管理
 - 错误处理机制
 
@@ -138,6 +147,12 @@ src/
 - 资源压缩
 
 ## 🎨 开发规范
+
+### TypeScript 规范
+
+- 源码模块使用 `.ts`，Vue 单文件组件按需使用 `<script setup lang="ts">`
+- 全局声明集中在 `src/shims-vue.d.ts`、`src/vite-env.d.ts` 和 `src/types/`
+- 提交前建议执行 `pnpm run typecheck` 和 `pnpm run lint`
 
 ### Git 提交规范
 
