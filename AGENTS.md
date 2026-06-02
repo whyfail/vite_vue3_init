@@ -4,6 +4,14 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
+## Template Baseline
+
+- Package manager: pnpm 11.5.0
+- Runtime: Node.js ^20.19.0 || >=22.12.0
+- Core stack: Vite 8.0.16, Vue 3.5.35, TypeScript 5.9.3, Element Plus 2.14.1
+- Routing/state: Vue Router 5.1.0, Pinia 3.0.4
+- Tooling: ESLint 10.4.1, UnoCSS 66.7.0, vue-tsc 3.3.3
+
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**

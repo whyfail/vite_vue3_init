@@ -1,3 +1,7 @@
+minimumReleaseAgeExclude:
+  - '@react-grab/cli@0.1.44'
+  - react-grab@0.1.44
+  - vite@8.0.16
 shellEmulator: true
 
 trustPolicy: no-downgrade
@@ -7,3 +11,6 @@ allowBuilds:
   core-js: true
   simple-git-hooks: true
   vue-demi: true
+
+trustPolicyExclude:
+  - semver@6.3.1
