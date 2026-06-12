@@ -6,11 +6,11 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 ## Template Baseline
 
-- Package manager: pnpm 11.5.0
+- Package manager: pnpm 11.6.0
 - Runtime: Node.js ^20.19.0 || >=22.12.0
-- Core stack: Vite 8.0.16, Vue 3.5.35, TypeScript 5.9.3, Element Plus 2.14.1
+- Core stack: Vite 8.0.16, Vue 3.5.38, TypeScript 5.9.3, Element Plus 2.14.2
 - Routing/state: Vue Router 5.1.0, Pinia 3.0.4
-- Tooling: ESLint 10.4.1, UnoCSS 66.7.0, vue-tsc 3.3.3
+- Tooling: ESLint 10.4.1, UnoCSS 66.7.0, vue-tsc 3.3.4
 
 ## 1. Think Before Coding
 
