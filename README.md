@@ -1,214 +1,101 @@
-# Vue 3 + Vite 企业级开发模板 🚀
+# 为 AI 而生的 Vue 3 + Vite 企业级项目模板
 
-一个现代化、高性能、易扩展的 Vue 3 项目初始化模板，集成了企业级开发所需的各种工具和最佳实践。
+一个专为 AI 协作编码设计的 Vue 3 企业级项目模板。模板通过 `AGENTS.md`、`app/features/shared` 分层、shadcn-vue 源码化组件和可验证工程脚本，把架构边界、开发约定和质量门禁明确写进项目本身，让 AI 和团队成员都能按同一套规则稳定扩展业务。
 
-## 文档
+## 核心特性
 
-[https://whyfail.github.io/cwa-docs/](https://whyfail.github.io/cwa-docs/)
+- **应用分层**：`src/app` 负责应用组合，`src/features` 承载业务模块，`src/shared` 放跨业务基础能力。
+- **AI 友好**：`AGENTS.md` 内置项目结构、依赖边界、验证命令和代码归属规则，减少 AI 误改和过度抽象。
+- **UI 体系**：shadcn-vue + reka-ui + vue-sonner，组件源码位于 `src/shared/ui`。
+- **样式方案**：Tailwind CSS v4，主题变量集中在 `src/app/styles/index.css`。
+- **图标方案**：Heroicons Vue，和 React 模板保持同系列图标库。
+- **路由管理**：Vue Router，feature 暴露 routes，由 `src/app/routes` 聚合。
+- **网络请求**：Axios 统一封装在 `src/shared/api/http.ts`。
+- **状态管理**：Pinia + persisted state，应用级注册位于 `src/app/stores`。
+- **构建治理**：Vite 插件通过 `.env` 开关启用。
 
-## ✨ 核心特性
+## 技术栈
 
-- **现代化框架**：Vue 3 + TypeScript + Vite + Element Plus
-- **状态管理**：Pinia + 持久化存储
-- **路由管理**：Vue Router 4 + 权限控制
-- **网络请求**：Axios + 统一拦截
-- **样式方案**：UnoCSS + Sass + Element Plus 主题定制
-- **代码质量**：TypeScript + vue-tsc + ESLint + Git Hooks + 自动格式化
-- **构建优化**：Gzip/Brotli 压缩 + 代码分割 + 资源优化
-- **开发体验**：热更新 + 代码检查器 + Vue DevTools
-- **浏览器兼容**：Legacy 模式支持旧浏览器
-- **更新通知**：自动检测新版本并提示用户
+| 类别     | 技术                 |
+| -------- | -------------------- |
+| 核心框架 | Vue 3 + TypeScript   |
+| 构建工具 | Vite 8               |
+| UI 组件  | shadcn-vue + reka-ui |
+| 样式     | Tailwind CSS v4      |
+| 图标     | Heroicons Vue        |
+| 路由     | Vue Router           |
+| 状态     | Pinia                |
+| 请求     | Axios                |
+| 通知     | vue-sonner           |
 
-## 🛠️ 技术栈
-
-| 类别             | 技术           | 版本    |
-| ---------------- | -------------- | ------- |
-| **核心框架**     | Vue            | 3.5.38  |
-| **类型系统**     | TypeScript     | 5.9.3   |
-| **构建工具**     | Vite           | 8.0.16  |
-| **UI 组件库**    | Element Plus   | 2.14.2  |
-| **状态管理**     | Pinia          | 3.0.4   |
-| **路由管理**     | Vue Router     | 5.1.0   |
-| **HTTP 客户端**  | Axios          | 1.17.0  |
-| **样式方案**     | UnoCSS         | 66.7.0  |
-| **样式预处理器** | Sass           | 1.101.0 |
-| **工具库**       | Lodash-es      | 4.18.1  |
-| **日期处理**     | Dayjs          | 1.11.21 |
-| **进度条**       | NProgress      | 0.2.0   |
-| **懒加载**       | Vue3 Lazyload  | 0.4.2   |
-| **钩子库**       | Vue Hooks Plus | 2.4.3   |
-| **Hooks 工具**   | VueUse         | 14.3.0  |
-
-## 📦 快速开始
-
-### 环境要求
-
-- Node.js >= 20.0.0
-
-### 包管理器
-
-- 使用 pnpm@11.6.0 作为包管理器
-
-### 安装依赖
+## 快速开始
 
 ```bash
 pnpm install
+pnpm dev
 ```
 
-### 启动开发服务
+常用验证命令：
 
 ```bash
-pnpm run dev
+pnpm lint
+pnpm typecheck
+pnpm build
 ```
 
-服务将在 `http://localhost:5173` 启动，支持热更新。
+## 项目结构
 
-### 构建生产版本
-
-```bash
-pnpm run build
-```
-
-构建产物将输出到 `dist` 目录，支持 Gzip 和 Brotli 双压缩。
-
-### 预览构建结果
-
-```bash
-pnpm run preview
-```
-
-### 代码检查
-
-```bash
-pnpm run lint
-```
-
-### 类型检查
-
-```bash
-pnpm run typecheck
-```
-
-## 📁 项目结构
-
-```
+```txt
 src/
-├── apis/           # API 接口管理
-├── assets/         # 静态资源
-│   ├── css/        # 全局样式
-│   └── images/     # 图片资源
-├── common/         # 公共常量
-├── components/     # 公共组件
-├── directive/      # 自定义指令
-├── layout/         # 布局组件
-├── pages/          # 页面组件
-│   ├── module-home/    # 首页模块
-│   ├── module-login/   # 登录模块
-│   └── module-time/    # 时间模块
-├── routes/         # 路由配置
-├── stores/         # 状态管理
-├── types/          # 全局类型补充
-├── utils/          # 工具函数
-├── App.vue         # 根组件
-└── main.ts         # 入口文件
+├── app/                  # 应用组合层
+│   ├── routes/           # 路由聚合、守卫、类型
+│   ├── stores/           # 全局状态注册
+│   ├── styles/           # Tailwind 与全局样式
+│   ├── App.vue
+│   └── setup.ts
+├── features/             # 业务模块
+│   ├── auth/             # 登录、session、认证接口
+│   └── docs/             # 模板文档页
+├── shared/               # 跨业务基础能力
+│   ├── api/              # HTTP client
+│   ├── components/       # 非 shadcn 的共享组件
+│   ├── config/           # 运行配置
+│   ├── lib/              # 工具函数
+│   └── ui/               # shadcn-vue primitives
+├── main.ts
+└── vite-env.d.ts
 ```
 
-## 🔧 核心功能
+## 环境变量
 
-### 1. 权限控制
+```env
+VITE_APP_NAME="初始化项目"
+VITE_API_BASE="/API_BASE"
+VITE_API_TARGET="http://xxxx"
+VITE_ENABLE_VUE_DEVTOOLS=true
+VITE_ENABLE_DEVTOOLS=false
+VITE_ENABLE_CODE_INSPECTOR=false
+VITE_ENABLE_PERFORMANCE_MONITOR=false
+VITE_ENABLE_COMPRESSION=true
+VITE_ENABLE_LEGACY=true
+VITE_ENABLE_WEB_UPDATE_NOTICE=false
+```
 
-- 基于路由元信息的权限校验
-- 登录状态管理
-- 权限指令支持
-- 路由 meta 类型声明：`src/vue-router-meta.d.ts`
+## shadcn-vue
 
-### 2. 主题定制
-
-- Element Plus 主题定制：`src/assets/css/element-plus.scss`
-- 支持动态切换主题（可扩展）
-
-### 3. 网络请求
-
-- Axios 封装，统一拦截，提供基础响应类型
-- API 模块化管理
-- 错误处理机制
-
-### 4. 状态管理
-
-- Pinia 模块化设计
-- 支持持久化存储
-- 开发环境日志追踪
-
-### 5. 性能优化
-
-- 图片懒加载
-- 路由懒加载
-- 代码分割策略
-- 资源压缩
-
-## 🎨 开发规范
-
-### TypeScript 规范
-
-- 源码模块使用 `.ts`，Vue 单文件组件按需使用 `<script setup lang="ts">`
-- 全局声明集中在 `src/shims-vue.d.ts`、`src/vite-env.d.ts` 和 `src/types/`
-- 提交前建议执行 `pnpm run typecheck` 和 `pnpm run lint`
-
-### Git 提交规范
-
-- 建议直接使用AI生成提交信息
-
-### 多人协作建议
+配置文件为 `components.json`。添加组件时使用：
 
 ```bash
-# 1. 添加所有变更
-git add -A
-
-# 2. 提交变更
-git commit -m "[类型] 详细信息"
-
-# 3. 同步远程分支（推荐使用 rebase）
-git pull --rebase
-
-# 4. 解决冲突（如果有）
-# - 手动解决冲突
-# - git add -A
-# - git rebase --continue
-
-# 5. 推送代码
-git push
+pnpm dlx shadcn-vue@latest add button card
 ```
 
-### Git 配置建议
+组件默认生成到 `src/shared/ui`，工具函数使用 `src/shared/lib/utils.ts`。
 
-```bash
-# 忽略换行符差异
-git config --global core.autocrlf input
+## 开发约定
 
-# 文件名大小写敏感
-git config --global core.ignorecase false
-```
-
-## 🔍 开发工具
-
-### Vue DevTools
-
-项目已集成 `vite-plugin-vue-devtools`，开发时可直接使用 Vue DevTools 扩展。
-
-### 代码检查器
-
-点击页面元素，按住 `Option + Shift`（Mac）或 `Alt + Shift`（Windows），可直接跳转到对应源码位置。
-
-## 🚀 部署建议
-
-1. **构建产物**：`dist` 目录包含所有生产环境所需资源
-2. **Nginx 配置**：
-   - 配置 Gzip/Brotli 压缩
-   - 配置静态资源缓存
-   - 配置 SPA 路由 fallback
-
-## 📄 许可证
-
-MIT License
-
-**享受开发，构建美好！** 🎉
+- 新业务放到 `src/features/<name>`。
+- feature 内部可以拥有自己的 `pages`、`components`、`api`、`store` 和 `routes.ts`。
+- 跨业务基础能力放到 `src/shared/api`、`src/shared/lib`、`src/shared/config`。
+- shadcn-vue 组件只放 `src/shared/ui`，不要混入业务逻辑。
+- 业务请求必须走 `src/shared/api/http.ts`。
+- 提交前建议执行 `pnpm lint && pnpm typecheck && pnpm build`。

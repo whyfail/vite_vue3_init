@@ -1,4 +1,6 @@
+import process from 'node:process';
 import { webUpdateNotice } from '@plugin-web-update-notification/vite';
+import tailwindcss from '@tailwindcss/vite';
 import { DevTools } from '@vitejs/devtools';
 import { DevToolsSelfInspect } from '@vitejs/devtools-self-inspect';
 import legacy from '@vitejs/plugin-legacy';
@@ -6,50 +8,34 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import autoprefixer from 'autoprefixer';
 import { codeInspectorPlugin } from 'code-inspector-plugin';
-import UnoCSS from 'unocss/vite';
-import ElementPlus from 'unplugin-element-plus/vite';
-import Printer from 'unplugin-printer/vite';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { compression } from 'vite-plugin-compression2';
-import vitePluginNoBug from 'vite-plugin-no-bug';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
-const logInfo: Parameters<typeof Printer>[0]['info'] = [
-  ({ lightCyan, green, bold }) => {
-    return `  ${green('➜')}  ${bold('官网')}:  ${lightCyan('https://whyfail.github.io/cwa-docs')}`;
-  },
-];
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  const apiBase = env.VITE_API_BASE || '/API_BASE';
+  const apiTarget = env.VITE_API_TARGET || 'http://xxxx';
 
-// https://vitejs.dev/config/
-export default defineConfig(() => {
   return {
     base: './',
     plugins: [
-      DevTools(),
-      DevToolsSelfInspect(),
+      env.VITE_ENABLE_DEVTOOLS === 'true' && DevTools(),
+      env.VITE_ENABLE_DEVTOOLS === 'true' && DevToolsSelfInspect(),
+      env.VITE_ENABLE_VUE_DEVTOOLS === 'true' && vueDevTools(),
       vue(),
       vueJsx(),
-      vueDevTools(),
-      compression({
+      env.VITE_ENABLE_COMPRESSION === 'true' && compression({
         algorithms: ['gzip', 'brotliCompress'], // 压缩算法 nginx需增相应配置
       }),
-      legacy({
+      env.VITE_ENABLE_LEGACY === 'true' && legacy({
         targets: ['defaults', 'not IE 11'],
       }),
-      UnoCSS({
-        configFile: './unocss.config.js',
-      }),
-      vitePluginNoBug(),
-      ElementPlus({
-        useSource: true,
-      }),
-      Printer({
-        info: logInfo,
-      }),
-      codeInspectorPlugin({
+      tailwindcss(),
+      env.VITE_ENABLE_CODE_INSPECTOR === 'true' && codeInspectorPlugin({
         bundler: 'vite',
       }),
-      webUpdateNotice({
+      env.VITE_ENABLE_WEB_UPDATE_NOTICE === 'true' && webUpdateNotice({
         notificationProps: {
           title: '系统升级通知',
           description: '检测到当前系统版本已更新，请刷新页面后使用',
@@ -57,7 +43,7 @@ export default defineConfig(() => {
           dismissButtonText: '忽略',
         },
       }),
-    ],
+    ].filter(Boolean),
     resolve: {
       alias: {
         '@': '/src',
@@ -72,22 +58,15 @@ export default defineConfig(() => {
           }),
         ].filter(Boolean),
       },
-      preprocessorOptions: {
-        scss: {
-          additionalData: `@use "@/assets/css/element-plus.scss" as *;`,
-        },
-      },
     },
     server: {
       host: true,
       open: true,
       proxy: {
-        // 代理
-        '/API_BASE': {
-          // !测试接口，新建项目后删除 https://api.uomg.com/doc-rand.qinghua.html
-          target: 'https://api.uomg.com/api',
+        [apiBase]: {
+          target: apiTarget,
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/API_BASE/, ''),
+          rewrite: path => path.replace(new RegExp(`^${apiBase}`), ''),
         },
       },
     },
@@ -100,16 +79,10 @@ export default defineConfig(() => {
             groups: [
               // Vue 核心库
               { name: 'vue-vendor', test: /node_modules\/(?:vue-router|pinia)/ },
-              // Element Plus 主库
-              { name: 'element-plus', test: /node_modules\/element-plus/ },
-              // Element Plus 图标
-              { name: 'element-icons', test: /node_modules\/@element-plus\/icons-vue/ },
-              // 工具库集合
-              { name: 'utils', test: /node_modules\/(lodash-es|dayjs|axios)/ },
-              // 动画和特效库
-              { name: 'animations', test: /node_modules\/(animate\.css|@zumer\/snapdom)/ },
-              // Vue Hooks 增强
-              { name: 'vue-hooks-plus', test: /node_modules\/vue-hooks-plus/ },
+              // HTTP 基础库
+              { name: 'http-vendor', test: /node_modules\/axios/ },
+              // UI 基础库
+              { name: 'ui-vendor', test: /node_modules\/(reka-ui|vue-sonner|@heroicons\/vue|@lucide\/vue)/ },
             ],
           },
           minify: {

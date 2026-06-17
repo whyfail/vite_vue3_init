@@ -4,14 +4,6 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
-## Template Baseline
-
-- Package manager: pnpm 11.6.0
-- Runtime: Node.js ^20.19.0 || >=22.12.0
-- Core stack: Vite 8.0.16, Vue 3.5.38, TypeScript 5.9.3, Element Plus 2.14.2
-- Routing/state: Vue Router 5.1.0, Pinia 3.0.4
-- Tooling: ESLint 10.4.1, UnoCSS 66.7.0, vue-tsc 3.3.4
-
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
@@ -76,3 +68,22 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+## AI Project Notes
+
+- New features go under `src/features/<name>`; pages in `pages`, business components in `components`, feature api/store stay inside the feature.
+- App-level composition stays in `src/app`; routes are aggregated in `src/app/routes`, and feature routes should lazy-load pages.
+- Shared primitives stay in `src/shared/ui`; cross-feature infra stays in `src/shared/api`, `src/shared/lib`, or `src/shared/config`.
+- Use Tailwind CSS for styling. Import Heroicons from `@heroicons/vue/24/outline` for business UI icons; keep shadcn-vue generated internals aligned with `components.json` `iconLibrary`.
+- shadcn-vue components are source files under `src/shared/ui`; add them with `pnpm dlx shadcn-vue@latest add`.
+- Session side effects stay in `features/auth/session`; navigation and notifications stay behind `app/navigation` and `app/notifications`.
+- Business requests should use shared API wrappers instead of scattered raw Axios instances.
+- Validate with `pnpm lint`, `pnpm typecheck`, and `pnpm build`.
+
+## 项目结构约定
+
+- `src/app` 只放应用级组合代码：路由、布局、通知、导航、全局样式。
+- `src/features/*` 放业务模块：page、component、api、store、business logic 都跟随 feature。
+- `src/shared/ui` 只放 shadcn-vue 基础组件，不放业务逻辑。
+- `src/shared/api`、`src/shared/lib`、`src/shared/config` 放跨业务基础能力。
+- 不新增 `common*` 万能目录；按能力或业务归属放文件。

@@ -25,5 +25,6 @@ if (!isGitInitialized()) {
   } catch (error) {
     console.error(error.message);
     console.debug('结束打包脚本');
+    process.exit(1);
   }
 }
