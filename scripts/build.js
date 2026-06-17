@@ -1,12 +1,12 @@
 /**
  * 项目打包
  */
-import { execSync } from 'node:child_process';
-import process from 'node:process';
+import { execSync } from "node:child_process";
+import process from "node:process";
 
 function isGitInitialized() {
   try {
-    execSync('git rev-parse --is-inside-work-tree');
+    execSync("git rev-parse --is-inside-work-tree");
 
     return true;
   } catch (error) {
@@ -21,10 +21,10 @@ if (!isGitInitialized()) {
   process.exit(1);
 } else {
   try {
-    execSync('vite build', { stdio: 'inherit' });
+    execSync("vite build", { stdio: "inherit" });
   } catch (error) {
     console.error(error.message);
-    console.debug('结束打包脚本');
+    console.debug("结束打包脚本");
     process.exit(1);
   }
 }

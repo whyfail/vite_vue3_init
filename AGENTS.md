@@ -79,6 +79,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Session side effects stay in `features/auth/session`; navigation and notifications stay behind `app/navigation` and `app/notifications`.
 - Business requests should use shared API wrappers instead of scattered raw Axios instances.
 - Validate with `pnpm lint`, `pnpm typecheck`, and `pnpm build`.
+- Format code with `pnpm format`; check formatting with `pnpm format:check`.
 
 ## 项目结构约定
 

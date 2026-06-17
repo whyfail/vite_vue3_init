@@ -1,17 +1,17 @@
-import type { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios';
-import axios from 'axios';
-import { handleUnauthorized } from '@/app/navigation';
-import { notify } from '@/app/notifications';
-import { getToken } from '@/features/auth/session';
+import type { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
+import axios from "axios";
+import { handleUnauthorized } from "@/app/navigation";
+import { notify } from "@/app/notifications";
+import { getToken } from "@/features/auth/session";
 
 interface ApiErrorData {
-  msg?: string
+  msg?: string;
 }
 
 export interface ApiError {
-  status?: number
-  message: string
-  raw?: unknown
+  status?: number;
+  message: string;
+  raw?: unknown;
 }
 
 const http = axios.create({
@@ -21,7 +21,7 @@ const http = axios.create({
 function toApiError(error: AxiosError<ApiErrorData>): ApiError {
   return {
     status: error.response?.status,
-    message: error.response?.data?.msg || error.message || '请求失败，请稍后重试',
+    message: error.response?.data?.msg || error.message || "请求失败，请稍后重试",
     raw: error,
   };
 }
@@ -30,11 +30,11 @@ http.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = getToken();
 
-    config.headers.Authorization = token ? `Bearer ${token}` : '';
+    config.headers.Authorization = token ? `Bearer ${token}` : "";
 
     return config;
   },
-  error => Promise.reject(error),
+  (error) => Promise.reject(error),
 );
 
 http.interceptors.response.use(
@@ -46,19 +46,19 @@ http.interceptors.response.use(
     const apiError = toApiError(error);
 
     if (!response) {
-      notify.error('网络错误，请检查网络连接');
+      notify.error("网络错误，请检查网络连接");
 
       return Promise.reject(apiError);
     }
 
     const errorHandlers: Partial<Record<number, () => void>> = {
       401: handleUnauthorized,
-      403: () => notify.error('无访问权限'),
-      404: () => notify.error('请求资源不存在'),
-      500: () => notify.error('服务器错误，请稍后重试'),
-      502: () => notify.error('网关错误'),
-      503: () => notify.error('服务不可用'),
-      504: () => notify.error('请求超时，请稍后重试'),
+      403: () => notify.error("无访问权限"),
+      404: () => notify.error("请求资源不存在"),
+      500: () => notify.error("服务器错误，请稍后重试"),
+      502: () => notify.error("网关错误"),
+      503: () => notify.error("服务不可用"),
+      504: () => notify.error("请求超时，请稍后重试"),
     };
 
     const handler = errorHandlers[response.status];

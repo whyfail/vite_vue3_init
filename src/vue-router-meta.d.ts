@@ -1,8 +1,8 @@
-import 'vue-router';
+import "vue-router";
 
-declare module 'vue-router' {
+declare module "vue-router" {
   interface RouteMeta {
-    title?: string
-    needLogin?: boolean
+    title?: string;
+    needLogin?: boolean;
   }
 }

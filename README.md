@@ -39,6 +39,9 @@ pnpm dev
 
 ```bash
 pnpm lint
+pnpm lint:fix
+pnpm format
+pnpm format:check
 pnpm typecheck
 pnpm build
 ```
@@ -99,3 +102,4 @@ pnpm dlx shadcn-vue@latest add button card
 - shadcn-vue 组件只放 `src/shared/ui`，不要混入业务逻辑。
 - 业务请求必须走 `src/shared/api/http.ts`。
 - 提交前建议执行 `pnpm lint && pnpm typecheck && pnpm build`。
+- 代码格式化使用 `pnpm format`，格式检查使用 `pnpm format:check`。

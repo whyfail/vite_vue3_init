@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import { Mesh, Program, Renderer, Triangle } from 'ogl';
-import { onBeforeUnmount, onMounted, useTemplateRef } from 'vue';
+import { Mesh, Program, Renderer, Triangle } from "ogl";
+import { onBeforeUnmount, onMounted, useTemplateRef } from "vue";
 
-const props = withDefaults(defineProps<{
-  noise?: number
-  scale?: number
-  timeScale?: number
-  transparent?: boolean
-}>(), {
-  noise: 0.045,
-  scale: 1,
-  timeScale: 0.5,
-  transparent: false,
-});
+const props = withDefaults(
+  defineProps<{
+    noise?: number;
+    scale?: number;
+    timeScale?: number;
+    transparent?: boolean;
+  }>(),
+  {
+    noise: 0.045,
+    scale: 1,
+    timeScale: 0.5,
+    transparent: false,
+  },
+);
 
-const containerRef = useTemplateRef<HTMLDivElement>('containerRef');
+const containerRef = useTemplateRef<HTMLDivElement>("containerRef");
 
 let cleanup: (() => void) | null = null;
 
@@ -34,11 +37,11 @@ function setupPrism() {
   gl.disable(gl.CULL_FACE);
 
   Object.assign(gl.canvas.style, {
-    position: 'absolute',
-    inset: '0',
-    width: '100%',
-    height: '100%',
-    display: 'block',
+    position: "absolute",
+    inset: "0",
+    width: "100%",
+    height: "100%",
+    display: "block",
   });
 
   container.appendChild(gl.canvas);

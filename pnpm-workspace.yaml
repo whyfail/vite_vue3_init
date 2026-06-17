@@ -1,15 +1,15 @@
 minimumReleaseAgeExclude:
   - vite@8.0.16
-  - '@vitejs/devtools-kit@0.3.3'
-  - '@vitejs/devtools-rolldown@0.3.3'
-  - '@vitejs/devtools-self-inspect@0.3.3'
-  - '@vitejs/devtools@0.3.3'
+  - "@vitejs/devtools-kit@0.3.3"
+  - "@vitejs/devtools-rolldown@0.3.3"
+  - "@vitejs/devtools-self-inspect@0.3.3"
+  - "@vitejs/devtools@0.3.3"
 shellEmulator: true
 
 trustPolicy: no-downgrade
 
 allowBuilds:
-  '@parcel/watcher': true
+  "@parcel/watcher": true
   core-js: true
   simple-git-hooks: true
   vue-demi: true

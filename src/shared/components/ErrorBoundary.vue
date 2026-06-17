@@ -1,12 +1,19 @@
 <script setup lang="ts">
-import { onErrorCaptured, ref } from 'vue';
-import { Button } from '@/shared/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/shared/ui/card';
+import { onErrorCaptured, ref } from "vue";
+import { Button } from "@/shared/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/shared/ui/card";
 
 interface ErrorInfo {
-  message: string
-  stack?: string
-  info: string
+  message: string;
+  stack?: string;
+  info: string;
 }
 
 const hasError = ref(false);
@@ -20,7 +27,7 @@ onErrorCaptured((error, _instance, info) => {
     stack: error.stack,
     info,
   };
-  console.error('ErrorBoundary 捕获到错误:', error, info);
+  console.error("ErrorBoundary 捕获到错误:", error, info);
 
   return false;
 });
@@ -38,15 +45,15 @@ function handleReload() {
         <CardDescription>抱歉，页面遇到了一些问题，请刷新后重试。</CardDescription>
       </CardHeader>
       <CardContent v-if="showDetails && errorInfo">
-        <pre class="max-h-72 overflow-auto rounded-md bg-muted p-4 text-sm text-muted-foreground">{{ errorInfo.message }}
-        {{ errorInfo.stack }}</pre>
+        <pre class="max-h-72 overflow-auto rounded-md bg-muted p-4 text-sm text-muted-foreground"
+          >{{ errorInfo.message }}
+        {{ errorInfo.stack }}</pre
+        >
       </CardContent>
       <CardFooter class="gap-3">
-        <Button @click="handleReload">
-          刷新页面
-        </Button>
+        <Button @click="handleReload"> 刷新页面 </Button>
         <Button variant="outline" @click="showDetails = !showDetails">
-          {{ showDetails ? '隐藏详情' : '显示详情' }}
+          {{ showDetails ? "隐藏详情" : "显示详情" }}
         </Button>
       </CardFooter>
     </Card>

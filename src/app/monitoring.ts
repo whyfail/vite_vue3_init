@@ -1,7 +1,7 @@
-import { performanceMonitor } from '@/shared/lib/performance';
+import { performanceMonitor } from "@/shared/lib/performance";
 
 export function setupMonitoring() {
-  if (import.meta.env.VITE_ENABLE_PERFORMANCE_MONITOR !== 'true') return;
+  if (import.meta.env.VITE_ENABLE_PERFORMANCE_MONITOR !== "true") return;
 
   performanceMonitor.init();
 

@@ -1,11 +1,12 @@
-import { readFileSync } from 'node:fs';
-import process from 'node:process';
+import { readFileSync } from "node:fs";
+import process from "node:process";
 
 const msgPath = process.argv[2];
-const msg = readFileSync(msgPath, 'utf-8').trim();
+const msg = readFileSync(msgPath, "utf-8").trim();
 
 // Commit message 格式规范
-const commitRE = /^(?:revert: )?(?:feat|fix|docs|style|refactor|perf|test|build|ci|chore|types|wip|release)(?:\(.+\))?: .{1,50}/;
+const commitRE =
+  /^(?:revert: )?(?:feat|fix|docs|style|refactor|perf|test|build|ci|chore|types|wip|release)(?:\(.+\))?: .{1,50}/;
 
 if (!commitRE.test(msg)) {
   console.error(`

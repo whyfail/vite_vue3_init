@@ -1,4 +1,4 @@
-const KEY_TOKEN = 'xxx_web_app_token';
+const KEY_TOKEN = "xxx_web_app_token";
 
 export function isAuthenticated() {
   return !!localStorage.getItem(KEY_TOKEN) || !!sessionStorage.getItem(KEY_TOKEN);
