@@ -78,6 +78,10 @@ export default defineConfig(({ mode }) => {
       reportCompressedSize: true,
       chunkSizeWarningLimit: 1500,
       rolldownOptions: {
+        checks: {
+          invalidAnnotation: false,
+          pluginTimings: false,
+        },
         output: {
           codeSplitting: {
             groups: [
