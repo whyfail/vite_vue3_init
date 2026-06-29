@@ -89,6 +89,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Validate with `pnpm lint`, `pnpm typecheck`, and `pnpm build`.
 - After dependency upgrades also run `pnpm peers check` so Vite/plugin peer range drift is caught before handoff.
 - Format code with `pnpm format`; check formatting with `pnpm format:check`.
+- Current dependency baseline: pnpm 11.9.0, Vite 8.1.0, Vue 3.5.39, TypeScript 5.9.3, Axios 1.18.1, Vue DevTools 8.1.5.
 
 ## 项目结构约定
 

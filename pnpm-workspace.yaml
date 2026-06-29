@@ -1,13 +1,10 @@
 minimumReleaseAgeExclude:
-  - vite@8.0.16
+  - vite@8.1.0
   - "@vitejs/devtools-kit@0.3.3"
   - "@vitejs/devtools-rolldown@0.3.3"
   - "@vitejs/devtools-self-inspect@0.3.3"
   - "@vitejs/devtools@0.3.3"
-  - "@vitejs/devtools-kit@0.1.24"
-  - "@vitejs/devtools-rolldown@0.1.24"
-  - "@vitejs/devtools-self-inspect@0.1.24"
-  - "@vitejs/devtools@0.1.24"
+  - "@vitejs/plugin-legacy@8.1.0"
   - "@code-inspector/core@1.6.2"
   - "@code-inspector/esbuild@1.6.2"
   - "@code-inspector/mako@1.6.2"
@@ -53,10 +50,18 @@ minimumReleaseAgeExclude:
   - "@oxlint/binding-win32-ia32-msvc@1.71.0"
   - "@oxlint/binding-win32-x64-msvc@1.71.0"
   - "@vitejs/plugin-vue-jsx@5.1.6"
+  - "@lucide/vue@1.22.0"
+  - "@types/node@26.0.1"
   - axios@1.18.1
   - code-inspector-plugin@1.6.2
   - oxfmt@0.56.0
   - oxlint@1.71.0
+  - reka-ui@2.10.1
+  - vite-plugin-vue-devtools@8.1.5
+  - vue@3.5.39
+  - "@vue/devtools-core@8.1.5"
+  - "@vue/devtools-kit@8.1.5"
+  - "@vue/devtools-shared@8.1.5"
 shellEmulator: true
 
 trustPolicy: no-downgrade
