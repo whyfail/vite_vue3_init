@@ -14,31 +14,36 @@ import vueDevTools from "vite-plugin-vue-devtools";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
+  const isTest = mode === "test";
   const apiBase = env.VITE_API_BASE || "/API_BASE";
   const apiTarget = env.VITE_API_TARGET || "http://xxxx";
 
   return {
     base: "./",
     plugins: [
-      env.VITE_ENABLE_DEVTOOLS === "true" && DevTools(),
-      env.VITE_ENABLE_DEVTOOLS === "true" && DevToolsSelfInspect(),
-      env.VITE_ENABLE_VUE_DEVTOOLS === "true" && vueDevTools(),
+      !isTest && env.VITE_ENABLE_DEVTOOLS === "true" && DevTools(),
+      !isTest && env.VITE_ENABLE_DEVTOOLS === "true" && DevToolsSelfInspect(),
+      !isTest && env.VITE_ENABLE_VUE_DEVTOOLS === "true" && vueDevTools(),
       vue(),
       vueJsx(),
-      env.VITE_ENABLE_COMPRESSION === "true" &&
+      !isTest &&
+        env.VITE_ENABLE_COMPRESSION === "true" &&
         compression({
           algorithms: ["gzip", "brotliCompress"], // 压缩算法 nginx需增相应配置
         }),
-      env.VITE_ENABLE_LEGACY === "true" &&
+      !isTest &&
+        env.VITE_ENABLE_LEGACY === "true" &&
         legacy({
           targets: ["defaults", "not IE 11"],
         }),
       tailwindcss(),
-      env.VITE_ENABLE_CODE_INSPECTOR === "true" &&
+      !isTest &&
+        env.VITE_ENABLE_CODE_INSPECTOR === "true" &&
         codeInspectorPlugin({
           bundler: "vite",
         }),
-      env.VITE_ENABLE_WEB_UPDATE_NOTICE === "true" &&
+      !isTest &&
+        env.VITE_ENABLE_WEB_UPDATE_NOTICE === "true" &&
         webUpdateNotice({
           notificationProps: {
             title: "系统升级通知",
@@ -104,6 +109,36 @@ export default defineConfig(({ mode }) => {
           },
         },
       },
+    },
+    test: {
+      coverage: {
+        all: true,
+        exclude: [
+          "src/main.ts",
+          "src/vite-env.d.ts",
+          "src/shims-vue.d.ts",
+          "src/vue-router-meta.d.ts",
+          "**/*.test.*",
+          "src/test/**",
+        ],
+        provider: "v8",
+        reporter: ["text", "html", "lcov"],
+        thresholds: {
+          branches: 70,
+          functions: 70,
+          lines: 70,
+          statements: 70,
+        },
+      },
+      css: true,
+      environment: "jsdom",
+      globals: true,
+      include: ["src/**/*.{test,spec}.{ts,tsx}"],
+      outputFile: {
+        junit: "test-results/vitest-junit.xml",
+      },
+      reporters: ["default"],
+      setupFiles: "./src/test/setup.ts",
     },
   };
 });

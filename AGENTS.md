@@ -86,8 +86,10 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - shadcn-vue components are source files under `src/shared/ui`; add them with `pnpm dlx shadcn-vue@latest add`.
 - Session side effects stay in `features/auth/session`; navigation and notifications stay behind `app/navigation` and `app/notifications`.
 - Business requests should use shared API wrappers instead of scattered raw Axios instances.
-- Validate with `pnpm lint`, `pnpm typecheck`, and `pnpm build`.
+- When adding or changing any component, add or update a component test for it; every component should have at least a render smoke test.
+- Validate with `pnpm test`, `pnpm test:coverage`, `pnpm test:component-coverage`, `pnpm typecheck`, `pnpm lint`, `pnpm test:e2e`, and `pnpm build`.
 - After dependency upgrades also run `pnpm peers check` so Vite/plugin peer range drift is caught before handoff.
+- Test reports are written to `coverage/`, `test-results/`, and `playwright-report/`; inspect them before lowering coverage thresholds.
 - Format code with `pnpm format`; check formatting with `pnpm format:check`.
 - Current dependency baseline: pnpm 11.10.0, Vite 8.1.3, Vue 3.5.39, TypeScript 6.0.3, Axios 1.18.1, Vue DevTools 8.1.5.
 

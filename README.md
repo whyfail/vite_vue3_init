@@ -40,6 +40,11 @@ pnpm dev
 常用验证命令：
 
 ```bash
+pnpm test
+pnpm test:coverage
+pnpm test:junit
+pnpm test:component-coverage
+pnpm test:e2e
 pnpm lint
 pnpm lint:fix
 pnpm format
@@ -47,6 +52,31 @@ pnpm format:check
 pnpm typecheck
 pnpm build
 ```
+
+## 测试与质量门禁
+
+模板内置 Vitest、Vue Test Utils、Testing Library、MSW、jest-axe 和 Playwright，覆盖单元测试、组件测试、无障碍测试、网络 mock 和 E2E 冒烟验证。
+
+| 命令                           | 说明                                  |
+| ------------------------------ | ------------------------------------- |
+| `pnpm test`                    | 运行单元测试、组件测试和 a11y 测试    |
+| `pnpm test:coverage`           | 运行覆盖率门禁，默认全局阈值 70%      |
+| `pnpm test:junit`              | 生成 `test-results/vitest-junit.xml`  |
+| `pnpm test:component-coverage` | 检查每个组件是否被组件测试覆盖        |
+| `pnpm test:e2e`                | 运行 Playwright Chromium E2E 冒烟测试 |
+| `pnpm typecheck`               | 运行 Vue/TypeScript 类型检查          |
+| `pnpm lint`                    | 运行 oxlint 静态检查                  |
+| `pnpm format:check`            | 检查格式化结果                        |
+| `pnpm build`                   | 验证生产构建                          |
+
+测试约定：
+
+- 新增或修改组件时，必须同步新增或更新组件测试；每个组件至少保留一个 mount/render smoke test。
+- 业务逻辑、session、navigation、API wrapper 等非 UI 能力应补单元测试。
+- 网络请求测试使用 MSW，不在测试中请求真实后端。
+- 页面级无障碍测试使用 `jest-axe`，E2E 冒烟测试使用 Playwright。
+- 覆盖率报告输出到 `coverage/`；Vitest/Playwright JUnit 报告输出到 `test-results/`；Playwright HTML 报告输出到 `playwright-report/`。
+- GitHub Actions 会执行安装、peer 检查、测试、覆盖率、组件测试守卫、类型检查、lint、E2E 和 build。
 
 ## 项目结构
 
@@ -103,5 +133,5 @@ pnpm dlx shadcn-vue@latest add button card
 - 跨业务基础能力放到 `src/shared/api`、`src/shared/lib`、`src/shared/config`。
 - shadcn-vue 组件只放 `src/shared/ui`，不要混入业务逻辑。
 - 业务请求必须走 `src/shared/api/http.ts`。
-- 提交前建议执行 `pnpm lint && pnpm typecheck && pnpm build`。
+- 提交前建议执行 `pnpm test && pnpm test:coverage && pnpm test:component-coverage && pnpm typecheck && pnpm lint && pnpm test:e2e && pnpm build`。
 - 代码格式化使用 `pnpm format`，格式检查使用 `pnpm format:check`。

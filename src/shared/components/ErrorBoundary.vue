@@ -47,8 +47,7 @@ function handleReload() {
       <CardContent v-if="showDetails && errorInfo">
         <pre class="max-h-72 overflow-auto rounded-md bg-muted p-4 text-sm text-muted-foreground"
           >{{ errorInfo.message }}
-        {{ errorInfo.stack }}</pre
-        >
+        {{ errorInfo.stack }}</pre>
       </CardContent>
       <CardFooter class="gap-3">
         <Button @click="handleReload"> 刷新页面 </Button>

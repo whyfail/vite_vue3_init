@@ -11,9 +11,9 @@
       "@/*": ["src/*"]
     },
     "noEmit": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "vitest/globals"],
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "vite.config.ts"]
 }

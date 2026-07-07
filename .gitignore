@@ -24,3 +24,9 @@ dist-ssr
 .nvmdrc
 # build
 stats.html
+
+# test reports
+coverage
+playwright-report
+test-results
+blob-report

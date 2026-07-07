@@ -117,7 +117,7 @@ const libraries: InfoItem[] = [
           <CardHeader>
             <div class="flex items-center gap-3">
               <component :is="item.icon" class="size-5 text-muted-foreground" />
-              <CardTitle>{{ item.name }}</CardTitle>
+              <CardTitle as="h2">{{ item.name }}</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
@@ -128,7 +128,7 @@ const libraries: InfoItem[] = [
 
       <Card>
         <CardHeader>
-          <CardTitle>推荐开发流程</CardTitle>
+          <CardTitle as="h2">推荐开发流程</CardTitle>
           <CardDescription>保持业务内聚，基建沉到 app/shared，提交前执行验证。</CardDescription>
         </CardHeader>
         <CardContent class="grid gap-4 md:grid-cols-4">
@@ -156,7 +156,7 @@ const libraries: InfoItem[] = [
           <CardHeader>
             <div class="flex items-center gap-3">
               <component :is="item.icon" class="size-5 text-muted-foreground" />
-              <CardTitle>{{ item.name }}</CardTitle>
+              <CardTitle as="h2">{{ item.name }}</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
