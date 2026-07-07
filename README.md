@@ -16,19 +16,19 @@
 
 ## 技术栈
 
-| 类别     | 技术                       |
-| -------- | -------------------------- |
-| 核心框架 | Vue 3.5.39 + TypeScript    |
-| 构建工具 | Vite 8.1.0                 |
-| UI 组件  | shadcn-vue + reka-ui       |
-| 样式     | Tailwind CSS v4            |
-| 图标     | Heroicons Vue + Lucide Vue |
-| 路由     | Vue Router                 |
-| 状态     | Pinia                      |
-| 请求     | Axios 1.18.1               |
-| 通知     | vue-sonner                 |
+| 类别     | 技术                          |
+| -------- | ----------------------------- |
+| 核心框架 | Vue 3.5.39 + TypeScript 6.0.3 |
+| 构建工具 | Vite 8.1.3                    |
+| UI 组件  | shadcn-vue + reka-ui          |
+| 样式     | Tailwind CSS v4               |
+| 图标     | Heroicons Vue + Lucide Vue    |
+| 路由     | Vue Router                    |
+| 状态     | Pinia                         |
+| 请求     | Axios 1.18.1                  |
+| 通知     | vue-sonner                    |
 
-包管理器基线：pnpm 11.9.0。
+包管理器基线：pnpm 11.10.0。
 
 ## 快速开始
 
