@@ -18,13 +18,13 @@
 
 | 类别     | 技术                          |
 | -------- | ----------------------------- |
-| 核心框架 | Vue 3.5.39 + TypeScript 6.0.3 |
-| 构建工具 | Vite 8.1.4                    |
+| 核心框架 | Vue 3.5.40 + TypeScript 6.0.3 |
+| 构建工具 | Vite 8.1.5                    |
 | UI 组件  | shadcn-vue + reka-ui          |
 | 样式     | Tailwind CSS v4               |
 | 图标     | Heroicons Vue + Lucide Vue    |
-| 路由     | Vue Router                    |
-| 状态     | Pinia                         |
+| 路由     | Vue Router 5.2                |
+| 状态     | Pinia 4                       |
 | 请求     | Axios 1.18.1                  |
 | 通知     | vue-sonner                    |
 
