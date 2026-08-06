@@ -2,7 +2,6 @@ import process from "node:process";
 import { webUpdateNotice } from "@plugin-web-update-notification/vite";
 import tailwindcss from "@tailwindcss/vite";
 import { DevTools } from "@vitejs/devtools";
-import { DevToolsSelfInspect } from "@vitejs/devtools-self-inspect";
 import legacy from "@vitejs/plugin-legacy";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
@@ -22,7 +21,6 @@ export default defineConfig(({ mode }) => {
     base: "./",
     plugins: [
       !isTest && env.VITE_ENABLE_DEVTOOLS === "true" && DevTools(),
-      !isTest && env.VITE_ENABLE_DEVTOOLS === "true" && DevToolsSelfInspect(),
       !isTest && env.VITE_ENABLE_VUE_DEVTOOLS === "true" && vueDevTools(),
       vue(),
       vueJsx(),

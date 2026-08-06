@@ -81,6 +81,7 @@ allowBuilds:
   "@parcel/watcher": true
   core-js: true
   msw: true
+  node-pty: true
   simple-git-hooks: true
   vue-demi: true
 

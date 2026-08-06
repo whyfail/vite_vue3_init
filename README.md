@@ -19,18 +19,18 @@
 | 类别     | 技术                          |
 | -------- | ----------------------------- |
 | 核心框架 | Vue 3.5.40 + TypeScript 6.0.3 |
-| 构建工具 | Vite 8.1.5                    |
+| 构建工具 | Vite 8.2.0                    |
 | UI 组件  | shadcn-vue + reka-ui          |
 | 样式     | Tailwind CSS v4               |
 | 图标     | Heroicons Vue + Lucide Vue    |
 | 路由     | Vue Router 5.2                |
 | 状态     | Pinia 4                       |
-| 请求     | Axios 1.18.1                  |
+| 请求     | Axios 1.19.0                  |
 | 通知     | vue-sonner                    |
 
 运行时基线：Node.js 24.18.0（Krypton LTS；支持范围 `^24.18.0`）。
 
-包管理器基线：pnpm 11.10.0。
+包管理器基线：pnpm 11.20.0。
 
 ## 快速开始
 
