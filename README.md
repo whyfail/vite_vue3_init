@@ -18,8 +18,8 @@
 
 | 类别     | 技术                          |
 | -------- | ----------------------------- |
-| 核心框架 | Vue 3.5.40 + TypeScript 6.0.3 |
-| 构建工具 | Vite 8.2.0                    |
+| 核心框架 | Vue 3.5.41 + TypeScript 6.0.3 |
+| 构建工具 | Vite 8.2.2                    |
 | UI 组件  | shadcn-vue + reka-ui          |
 | 样式     | Tailwind CSS v4               |
 | 图标     | Heroicons Vue + Lucide Vue    |
