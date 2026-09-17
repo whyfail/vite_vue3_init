@@ -14,8 +14,15 @@ import vueDevTools from "vite-plugin-vue-devtools";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const isTest = mode === "test";
-  const apiBase = env.VITE_API_BASE || "/API_BASE";
-  const apiTarget = env.VITE_API_TARGET || "http://xxxx";
+  const required = (key: string) => {
+    if (!env[key]) {
+      throw new Error(`Missing required environment variable: ${key}`);
+    }
+
+    return env[key];
+  };
+  const apiBase = required("VITE_API_BASE");
+  const apiTarget = required("VITE_API_TARGET");
 
   return {
     base: "./",
@@ -73,7 +80,7 @@ export default defineConfig(({ mode }) => {
         [apiBase]: {
           target: apiTarget,
           changeOrigin: true,
-          rewrite: (path) => path.replace(new RegExp(`^${apiBase}`), ""),
+          rewrite: (path) => path.slice(apiBase.length),
         },
       },
     },

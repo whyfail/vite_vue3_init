@@ -28,7 +28,7 @@
 | 请求     | Axios 1.20.0                  |
 | 通知     | vue-sonner                    |
 
-运行时基线：Node.js 24.18.0（Krypton LTS；支持范围 `^24.18.0`）。
+运行时基线：Node.js 24 LTS（Krypton；支持范围 `>=24.11.0 <25`，推荐最新 24.x）。
 
 包管理器基线：pnpm 11.20.0。
 
@@ -108,7 +108,7 @@ src/
 ```env
 VITE_APP_NAME="初始化项目"
 VITE_API_BASE="/API_BASE"
-VITE_API_TARGET="http://xxxx"
+VITE_API_TARGET="http://localhost:8080"
 VITE_ENABLE_VUE_DEVTOOLS=true
 VITE_ENABLE_DEVTOOLS=false
 VITE_ENABLE_CODE_INSPECTOR=false
@@ -117,6 +117,8 @@ VITE_ENABLE_COMPRESSION=true
 VITE_ENABLE_LEGACY=true
 VITE_ENABLE_WEB_UPDATE_NOTICE=false
 ```
+
+`VITE_API_BASE` 和 `VITE_API_TARGET` 为必填项；启动和构建时会立即报告缺失配置。
 
 ## shadcn-vue
 
