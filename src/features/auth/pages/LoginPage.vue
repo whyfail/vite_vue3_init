@@ -7,21 +7,21 @@ import { Button } from "@/shared/ui/button";
 import LoginPrism from "./LoginPrism.vue";
 
 interface LoginFormValues {
-  name: string;
+  username: string;
   password: string;
-  checked: boolean;
+  remember: boolean;
 }
 
 const router = useRouter();
 const loading = ref(false);
 const formValues = reactive<LoginFormValues>({
-  name: "admin",
+  username: "admin",
   password: "admin",
-  checked: false,
+  remember: false,
 });
 
 async function onSubmit() {
-  if (!formValues.name.trim() || !formValues.password.trim()) {
+  if (!formValues.username.trim() || !formValues.password.trim()) {
     notify.error("账号和密码必填");
 
     return;
@@ -30,8 +30,8 @@ async function onSubmit() {
   loading.value = true;
 
   try {
-    if (formValues.name === "admin" && formValues.password === "admin") {
-      setToken("123", formValues.checked);
+    if (formValues.username === "admin" && formValues.password === "admin") {
+      setToken("123", formValues.remember);
       notify.success("登录成功");
       await router.replace("/docs");
     } else {
@@ -59,7 +59,7 @@ async function onSubmit() {
 
         <form class="flex flex-col gap-4" @submit.prevent="onSubmit">
           <input
-            v-model="formValues.name"
+            v-model="formValues.username"
             class="h-10 rounded-md border border-white/40 bg-white/85 px-3 text-sm text-foreground outline-none ring-offset-background placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring"
             placeholder="请输入账号：admin"
           />
@@ -77,7 +77,7 @@ async function onSubmit() {
           <label
             class="mb-4 flex items-center justify-end gap-2 text-sm text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]"
           >
-            <input v-model="formValues.checked" type="checkbox" />
+            <input v-model="formValues.remember" type="checkbox" />
             记住账号
           </label>
         </form>
