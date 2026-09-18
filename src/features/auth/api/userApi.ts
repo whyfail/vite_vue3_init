@@ -2,9 +2,9 @@ import { request } from "@/shared/api/http";
 import { API_BASE_NAME } from "@/shared/config/appConfig";
 
 export interface UserLoginParams {
-  name: string;
+  username: string;
   password: string;
-  checked?: boolean;
+  remember?: boolean;
 }
 
 export interface UserLoginResponse {
