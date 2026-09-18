@@ -136,6 +136,16 @@ pnpm dlx shadcn-vue@latest add button card
 
 组件默认生成到 `src/shared/ui`，工具函数使用 `src/shared/lib/utils.ts`。
 
+## 容器化部署
+
+模板内置多阶段 Dockerfile：构建静态产物后用 nginx 提供服务，并把 `/api` 反向代理到后端（上游由运行时环境变量 `API_BACKEND_URL` 决定，默认 `http://host.docker.internal:8080`，Linux 宿主机加 `--add-host=host.docker.internal:host-gateway` 或在运行时覆盖该变量）。
+
+```bash
+# 构建并运行（可按需覆盖 API 地址）
+docker build -t my-app .
+docker run -p 8080:80 -e API_BACKEND_URL=http://host.docker.internal:8080 my-app
+```
+
 ## 开发约定
 
 - 新业务放到 `src/features/<name>`。
