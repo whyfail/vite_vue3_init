@@ -21,7 +21,6 @@ export default defineConfig(({ mode }) => {
 
     return env[key];
   };
-  const apiBase = required("VITE_API_BASE");
   const apiTarget = required("VITE_API_TARGET");
 
   return {
@@ -77,10 +76,10 @@ export default defineConfig(({ mode }) => {
       host: true,
       open: true,
       proxy: {
-        [apiBase]: {
+        // 后端 API 前缀固定为 /api/v1，代理不做路径改写，与生产网关行为一致
+        "/api": {
           target: apiTarget,
           changeOrigin: true,
-          rewrite: (path) => path.slice(apiBase.length),
         },
       },
     },
@@ -125,6 +124,8 @@ export default defineConfig(({ mode }) => {
           "src/vue-router-meta.d.ts",
           "**/*.test.*",
           "src/test/**",
+          "src/shared/api/generated/**",
+          "src/shared/api/mock/**",
         ],
         provider: "v8",
         reporter: ["text", "html", "lcov"],

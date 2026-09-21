@@ -1,5 +1,3 @@
-export const API_BASE_NAME = import.meta.env.VITE_API_BASE;
-
 export const ResponseCode = {
   successCode: 200,
   outTimeCode: 504,

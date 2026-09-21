@@ -2,7 +2,9 @@
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { notify } from "@/app/notifications";
+import { userLoginApi } from "@/features/auth/api/userApi";
 import { setToken } from "@/features/auth/session";
+import { isApiError } from "@/shared/api/http";
 import { Button } from "@/shared/ui/button";
 import LoginPrism from "./LoginPrism.vue";
 
@@ -15,8 +17,8 @@ interface LoginFormValues {
 const router = useRouter();
 const loading = ref(false);
 const formValues = reactive<LoginFormValues>({
-  username: "admin",
-  password: "admin",
+  username: "",
+  password: "",
   remember: false,
 });
 
@@ -30,10 +32,18 @@ async function onSubmit() {
   loading.value = true;
 
   try {
-    if (formValues.username === "admin" && formValues.password === "admin") {
-      setToken("123", formValues.remember);
-      notify.success("登录成功");
-      await router.replace("/docs");
+    const result = await userLoginApi({
+      username: formValues.username,
+      password: formValues.password,
+      remember: formValues.remember,
+    });
+
+    setToken(result.token, formValues.remember);
+    notify.success("登录成功");
+    await router.replace("/docs");
+  } catch (error: unknown) {
+    if (isApiError(error) && error.message) {
+      notify.error(error.message);
     } else {
       notify.error("登录失败");
     }
@@ -61,12 +71,12 @@ async function onSubmit() {
           <input
             v-model="formValues.username"
             class="h-10 rounded-md border border-white/40 bg-white/85 px-3 text-sm text-foreground outline-none ring-offset-background placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring"
-            placeholder="请输入账号：admin"
+            placeholder="请输入账号"
           />
           <input
             v-model="formValues.password"
             class="h-10 rounded-md border border-white/40 bg-white/85 px-3 text-sm text-foreground outline-none ring-offset-background placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring"
-            placeholder="请输入登录密码：admin"
+            placeholder="请输入登录密码"
             type="password"
           />
 

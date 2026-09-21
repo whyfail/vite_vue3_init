@@ -88,6 +88,8 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Business requests should use shared API wrappers instead of scattered raw Axios instances.
 - When adding or changing any component, add or update a component test for it; every component should have at least a render smoke test.
 - Validate with `pnpm test`, `pnpm test:coverage`, `pnpm test:component-coverage`, `pnpm typecheck`, `pnpm lint`, `pnpm test:e2e`, and `pnpm build`.
+- After changing `openapi/api-contract.yaml` or the upstream contract, run `pnpm api:generate` and commit the regenerated `src/shared/api/generated`; never edit generated files by hand, and import them only through `src/features/auth/api/userApi.ts` or `@/shared/api/generated`.
+- Browser API mocking lives in `src/shared/api/mock` and only activates when `VITE_ENABLE_MOCK=true`; production builds must never fall back to mock silently.
 - After dependency upgrades also run `pnpm peers check` so Vite/plugin peer range drift is caught before handoff.
 - Test reports are written to `coverage/`, `test-results/`, and `playwright-report/`; inspect them before lowering coverage thresholds.
 - Format code with `pnpm format`; check formatting with `pnpm format:check`.

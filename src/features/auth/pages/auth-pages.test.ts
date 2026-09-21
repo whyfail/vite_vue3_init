@@ -21,12 +21,12 @@ function mountLoginPage() {
 }
 
 describe("auth pages", () => {
-  it("renders login form defaults", () => {
+  it("renders login form with empty defaults", () => {
     const wrapper = mountLoginPage();
     const inputs = wrapper.findAll("input");
 
-    expect(inputs[0].element.value).toBe("admin");
-    expect(inputs[1].element.value).toBe("admin");
+    expect(inputs[0].element.value).toBe("");
+    expect(inputs[1].element.value).toBe("");
     expect(wrapper.text()).toContain("登录");
   });
 
@@ -41,13 +41,16 @@ describe("auth pages", () => {
     expect(sessionStorage.getItem("xxx_web_app_token")).toBeNull();
   });
 
-  it("stores token after successful login", async () => {
+  it("stores the contract token after successful login", async () => {
     const wrapper = mountLoginPage();
+    const inputs = wrapper.findAll("input");
 
+    await inputs[0].setValue("admin");
+    await inputs[1].setValue("admin");
     await wrapper.find("form").trigger("submit.prevent");
     await flushPromises();
 
-    expect(sessionStorage.getItem("xxx_web_app_token")).toBe("123");
+    expect(sessionStorage.getItem("xxx_web_app_token")).toBeTruthy();
   });
 
   it("renders prism background container", () => {

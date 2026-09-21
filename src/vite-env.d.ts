@@ -10,8 +10,8 @@ declare module "*.vue" {
 
 interface ImportMetaEnv {
   readonly VITE_APP_NAME: string;
-  readonly VITE_API_BASE?: string;
   readonly VITE_API_TARGET?: string;
+  readonly VITE_ENABLE_MOCK?: string;
   readonly VITE_ENABLE_VUE_DEVTOOLS?: string;
   readonly VITE_ENABLE_DEVTOOLS?: string;
   readonly VITE_ENABLE_CODE_INSPECTOR?: string;

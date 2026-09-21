@@ -5,7 +5,15 @@
     "correctness": "error",
     "suspicious": "warn"
   },
-  "ignorePatterns": ["node_modules/**", "dist/**", "public/**", ".agents/**", ".trae/**"],
+  "ignorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "public/**",
+    ".agents/**",
+    ".trae/**",
+    "src/shared/api/generated/**",
+    "openapi/**"
+  ],
   "env": {
     "builtin": true,
     "browser": true,

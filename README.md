@@ -113,8 +113,8 @@ src/
 
 ```env
 VITE_APP_NAME="初始化项目"
-VITE_API_BASE="/API_BASE"
 VITE_API_TARGET="http://localhost:8080"
+VITE_ENABLE_MOCK=false
 VITE_ENABLE_VUE_DEVTOOLS=true
 VITE_ENABLE_DEVTOOLS=false
 VITE_ENABLE_CODE_INSPECTOR=false
@@ -124,7 +124,9 @@ VITE_ENABLE_LEGACY=true
 VITE_ENABLE_WEB_UPDATE_NOTICE=false
 ```
 
-`VITE_API_BASE` 和 `VITE_API_TARGET` 为必填项；启动和构建时会立即报告缺失配置。
+`VITE_API_TARGET` 为必填项；启动和构建时会立即报告缺失配置。API 请求前缀固定为 `/api/v1`（与配套 springboot-template 契约一致），开发代理按 `/api` 前缀转发且不做路径改写。
+
+`VITE_ENABLE_MOCK=true` 时启用 MSW 浏览器 Mock（演示账号 `admin`/`admin`），用于无后端的本地开发与模板 E2E；生产构建保持 `false`，登录始终请求真实后端。
 
 ## shadcn-vue
 
