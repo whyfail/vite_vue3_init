@@ -12,7 +12,7 @@ export default defineConfig({
       target: "./src/shared/api/generated/index.ts",
       schemas: "./src/shared/api/generated/model",
       clean: true,
-      prettier: false,
+      formatter: "oxfmt",
       override: {
         mutator: {
           path: "./src/shared/api/http-mutator.ts",
