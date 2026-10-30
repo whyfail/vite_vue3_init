@@ -18,19 +18,19 @@
 
 | 类别     | 技术                          |
 | -------- | ----------------------------- |
-| 核心框架 | Vue 3.5.43 + TypeScript 6.0.3 |
-| 构建工具 | Vite 8.3.3                    |
+| 核心框架 | Vue 3.5.44 + TypeScript 6.0.3 |
+| 构建工具 | Vite 8.3.5                    |
 | UI 组件  | shadcn-vue + reka-ui          |
 | 样式     | Tailwind CSS v4               |
 | 图标     | Heroicons Vue + Lucide Vue    |
-| 路由     | Vue Router 5.3                |
+| 路由     | Vue Router 5.4                |
 | 状态     | Pinia 4                       |
-| 请求     | Axios 1.20.0                  |
+| 请求     | Axios 1.21.0                  |
 | 通知     | vue-sonner                    |
 
-运行时基线：Node.js 24 LTS（Krypton；支持范围 `>=24.11.0 <25`，推荐最新 24.x）。
+运行时基线：Node.js 24 LTS（Krypton；支持范围 `>=24.15.0 <25`，推荐最新 24.x）。
 
-包管理器基线：pnpm 12.14.0。
+包管理器基线：pnpm 12.16.1。
 
 ## 快速开始
 
@@ -79,6 +79,12 @@ pnpm build
 - 页面级无障碍测试使用 `jest-axe`，E2E 冒烟测试使用 Playwright。
 - 覆盖率报告输出到 `coverage/`；Vitest/Playwright JUnit 报告输出到 `test-results/`；Playwright HTML 报告输出到 `playwright-report/`。
 - GitHub Actions 会执行安装、peer 检查、测试、覆盖率、组件测试守卫、类型检查、lint、E2E 和 build。
+
+## 依赖升级兼容说明
+
+- Node.js 下限与 jsdom 的运行要求对齐为 24.15.0；CI 同时验证该最低版本与最新 24.x。
+- MSW 3 使用 ESM 和按能力拆分的导入入口；HTTP Mock 从 `msw/http` 导入，未匹配流量选项为 `onUnhandledFrame`。
+- TypeScript 保持 6.0.3，与当前类型检查及 ESLint parser 的支持范围一致。
 
 ## 推荐后端模板
 

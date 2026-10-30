@@ -1,4 +1,4 @@
-import { HttpResponse, http } from "msw";
+import { HttpResponse, http } from "msw/http";
 
 // 演示账号与契约形状的固定响应。仅在显式开启 VITE_ENABLE_MOCK 时启用，
 // 组合模式（cwa-stack preset）不会引入该模块。

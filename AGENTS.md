@@ -93,7 +93,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - After dependency upgrades also run `pnpm peers check` so Vite/plugin peer range drift is caught before handoff.
 - Test reports are written to `coverage/`, `test-results/`, and `playwright-report/`; inspect them before lowering coverage thresholds.
 - Format code with `pnpm format`; check formatting with `pnpm format:check`.
-- Current runtime and dependency baseline: Node.js 24 LTS (>=24.11.0 <25), pnpm 12.14.0, Vite 8.3.1, Vue 3.5.43, Vue Router 5.3.1, Pinia 4.0.3, TypeScript 6.0.3, Axios 1.20.0, Vue DevTools 8.2.1.
+- Current runtime and dependency baseline: Node.js 24 LTS (>=24.15.0 <25), pnpm 12.16.1, Vite 8.3.5, Vue 3.5.44, Vue Router 5.4.0, Pinia 4.1.0, TypeScript 6.0.3, Axios 1.21.0, Vue DevTools 8.2.1.
 
 ## 项目结构约定
 
